@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AYSO Concessions</title>
+    <style>
+        :root{
+            /* Tweak this one number bigger/smaller to scale everything */
+            --base: 22px;
+
+            /* High-contrast theme for bright environments */
+            --bg: #ffffff;
+            --panel: #f3f5f7;
+            --ink: #0b2141;        /* very dark navy */
+            --accent: #e31c3d;     /* red for prices/highlights */
+            --subtle: #6e7a8a;
+            --rule: #dfe5eb;
+        }
+        html,body { height: 100%; }
+        body{
+            margin:0; background:var(--bg); color:var(--ink);
+            font: 700 calc(var(--base) * 1.0)/1.25 system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            letter-spacing: .2px;
+        }
+        .wrap{
+            height:100%;
+            display:flex; flex-direction:column;
+        }
+        header{
+            padding: clamp(12px, 2.5vh, 28px) clamp(16px, 3vw, 40px);
+            background: #1769ff;
+            color:#fff; text-shadow: 0 1px 2px rgba(0,0,0,.25);
+        }
+        header .title{
+            font-size: clamp(36px, 6.5vh, 64px);
+            font-weight: 800;
+            margin:0;
+            letter-spacing:.5px;
+        }
+        header .subtitle{
+            font-size: clamp(16px, 2.3vh, 24px);
+            opacity:.95; margin:.2em 0 0;
+        }
+
+        .grid{
+            display:grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: clamp(12px, 1.8vw, 28px);
+            padding: clamp(14px, 2.8vh, 28px) clamp(16px, 3vw, 40px);
+        }
+        .card{
+            background:var(--panel);
+            border: 2px solid var(--rule);
+            border-radius: 16px;
+            padding: clamp(12px, 2.2vh, 22px);
+            box-shadow: 0 6px 18px rgba(0,0,0,.06);
+            display:flex; flex-direction:column;
+            min-height: 0; /* for Firefox */
+        }
+        .card h2{
+            margin:0 0 .3em;
+            font-size: clamp(26px, 4.2vh, 40px);
+            text-transform:uppercase; letter-spacing:.8px;
+        }
+        .items{
+            display:flex; flex-direction:column; gap:.25em;
+            font-weight: 700;
+        }
+        .row{
+            display:flex; align-items:baseline; justify-content:space-between;
+            gap: 16px; padding: .12em 0;
+            border-bottom: 1px dashed var(--rule);
+        }
+        .row:last-child{ border-bottom:0; }
+        .name{
+            font-size: clamp(20px, 3.2vh, 30px);
+        }
+        .note{
+            font-weight:600; color:var(--subtle);
+            font-size: clamp(14px, 2.2vh, 20px);
+            margin-left:.4em;
+        }
+        .price{
+            font-size: clamp(22px, 3.6vh, 34px);
+            color: var(--accent);
+            min-width: 3.5ch; text-align:right;
+        }
+
+        /* Footer ticker (optional) */
+        footer{
+            color:#fff; background:#0b2141;
+            padding: .5em 1em; font-size: clamp(16px, 2.4vh, 22px);
+            display:flex; align-items:center; gap:.6em;
+        }
+        .dot{ width:.7em; height:.7em; background:#21c55d; border-radius:50%; box-shadow:0 0 0 2px rgba(255,255,255,.25) inset; }
+        .hint{ opacity:.9; }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <header>
+        <h1 class="title">AYSO Concessions</h1>
+        <p class="subtitle">High-contrast menu for bright daylight viewing</p>
+    </header>
+
+    <main class="grid">
+        <!-- Snacks -->
+        <section class="card">
+            <h2>Snacks</h2>
+            <div class="items">
+                <div class="row"><span class="name">Mini Donuts</span><span class="price">0.75</span></div>
+                <div class="row"><span class="name">Hot Dogs <span class="note">beef</span></span><span class="price">1.50</span></div>
+                <div class="row"><span class="name">Yogurt Pouch</span><span class="price">1.00</span></div>
+                <div class="row"><span class="name">Juice Box</span><span class="price">1.00</span></div>
+                <div class="row"><span class="name">Goldfish</span><span class="price">0.75</span></div>
+                <div class="row"><span class="name">Nachos</span><span class="price">3.00</span></div>
+                <div class="row"><span class="name">Popcorn</span><span class="price">1.50</span></div>
+            </div>
+        </section>
+
+        <!-- Beverages -->
+        <section class="card">
+            <h2>Beverages</h2>
+            <div class="items">
+                <div class="row"><span class="name">Cans <span class="note">Coke, Diet Coke, Sprite, Dr&nbsp;P, Diet Dr&nbsp;P</span></span><span class="price">1.00</span></div>
+                <div class="row"><span class="name">Water</span><span class="price">1.00</span></div>
+                <div class="row"><span class="name">Gatorade <span class="note">Blue, Red, Yellow, White&nbsp;Frost, Orange&nbsp;Zero</span></span><span class="price">2.50</span></div>
+                <div class="row"><span class="name">Root Beer / Sprite Zero <span class="note">caff-free</span></span><span class="price">1.00</span></div>
+                <div class="row"><span class="name">Coffee or Cocoa</span><span class="price">1.00</span></div>
+            </div>
+        </section>
+
+        <!-- Treats -->
+        <section class="card">
+            <h2>Treats</h2>
+            <div class="items">
+                <div class="row"><span class="name">BOBO PB&nbsp;+&nbsp;J</span><span class="price">2.00</span></div>
+                <div class="row"><span class="name">BelVita</span><span class="price">0.75</span></div>
+                <div class="row"><span class="name">Slim Jim</span><span class="price">0.50</span></div>
+                <div class="row"><span class="name">Fruit <span class="note">oranges 2 for $1</span></span><span class="price">1.00</span></div>
+                <div class="row"><span class="name">Oreo Cookies</span><span class="price">1.00</span></div>
+                <div class="row"><span class="name">AirHeads</span><span class="price">0.50</span></div>
+                <div class="row"><span class="name">Honey Buns</span><span class="price">1.00</span></div>
+                <div class="row"><span class="name">Muffins</span><span class="price">1.50</span></div>
+                <div class="row"><span class="name">Trail Mix</span><span class="price">1.00</span></div>
+                <div class="row"><span class="name">Chips</span><span class="price">1.00</span></div>
+                <div class="row"><span class="name">Fruit Snacks</span><span class="price">0.50</span></div>
+                <div class="row"><span class="name">Chocolate Bars / Skittles / Bottle Pops</span><span class="price">2.00</span></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <span class="dot" aria-hidden="true"></span>
+        <span class="hint">Prices include tax where applicable • Card or cash accepted</span>
+    </footer>
+</div>
+</body>
+</html>
