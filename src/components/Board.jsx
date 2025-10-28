@@ -5,7 +5,7 @@ function Board(){
   return (
     <div className="board-wrap">
       <header className="board-header">
-        <h1 className="title">AYSO Concessions</h1>
+            <h1 className="title">AYSO 128 Concessions</h1>
       </header>
 
       <main className="grid">

@@ -55,17 +55,28 @@
 }
 
 .board-header .title {
-  font-size: var(--size-2xl);
+  font-size: clamp(42px, 8vh, 72px);
   font-weight: 900;
   margin: 0;
   letter-spacing: 0.02em;
-  line-height: 1.1;
-  background: linear-gradient(90deg, rgba(255,255,255,0.95), rgba(255,255,255,0.45));
+  line-height: 1;
+  background: linear-gradient(90deg,
+    rgba(255,255,255,0.75) 0%,
+    rgba(255,255,255,1) 25%,
+    rgba(255,255,255,0.75) 50%,
+    rgba(255,255,255,1) 75%,
+    rgba(255,255,255,0.75) 100%
+  );
+  background-size: 200% 100%;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  background-size: 200% 100%;
-  animation: shine 3.5s linear infinite;
+  animation: shine 1.5s linear infinite;
+  text-shadow: 0 2px 12px rgba(0,0,0,.15);
+}
+
+@keyframes shine {
+  to { background-position: -200% 0; }
 }
 
 .grid {
@@ -92,7 +103,7 @@
 
 .card h2 {
   margin: 0 0 1rem;
-  font-size: 1.75rem;
+  font-size: clamp(24px, 4vh, 32px);
   font-weight: 700;
   text-transform: uppercase;
   color: var(--board-accent);
