@@ -1,10 +1,10 @@
 import './App.css'
-import Board from './components/Board'
+import Concessions from './components/Concessions'
 
 export default function App() {
   return (
     <div className="app">
-      <Board />
+      <Concessions />
     </div>
   )
 }
