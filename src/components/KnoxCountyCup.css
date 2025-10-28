@@ -1,0 +1,17 @@
+.kcc-wrap {
+  width: 100vw;
+  height: 100vh;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.kcc-title {
+  font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  font-size: clamp(48px, 10vh, 96px);
+  font-weight: 900;
+  color: black;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}

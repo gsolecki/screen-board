@@ -1,10 +1,10 @@
 import './App.css'
-import Concessions from './components/Concessions'
+import ScreenRotator from './components/ScreenRotator'
 
 export default function App() {
   return (
     <div className="app">
-      <Concessions />
+      <ScreenRotator />
     </div>
   )
 }
