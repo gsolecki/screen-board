@@ -16,6 +16,8 @@
   --space-md: clamp(0.5rem, 0.8vh, 0.75rem);
   --space-lg: clamp(0.75rem, 1.2vh, 1rem);
   --space-xl: clamp(1rem, 1.6vh, 1.5rem);
+
+  --max-rows: 1; /* This will be set dynamically by React */
 }
 
 .board-wrap {
@@ -112,7 +114,7 @@
 
 .items {
   display: grid;
-  grid-template-rows: repeat(12, 1fr); /* 12 rows for the longest column */
+  grid-template-rows: repeat(var(--max-rows), 1fr);
   gap: 0;
   flex: 1;
 }
@@ -135,23 +137,24 @@
 }
 
 .name {
-  font-size: 1.1rem;
+  font-size: clamp(1.25rem, 2.4vh, 1.5rem);
   color: var(--board-ink);
   display: flex;
   align-items: center;
   gap: 0.4em;
+  font-weight: 700;
 }
 
 .note {
   font-weight: 400;
   color: var(--board-subtle);
-  font-size: 0.85rem;
+  font-size: clamp(0.85rem, 1.6vh, 1rem);
 }
 
 .price {
-  font-size: 1.1rem;
+  font-size: clamp(1.25rem, 2.4vh, 1.5rem);
   color: var(--board-accent);
-  font-weight: 600;
+  font-weight: 700;
   min-width: 3.8ch;
   text-align: right;
 }

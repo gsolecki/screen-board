@@ -1,7 +1,17 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Board.css';
 
 function Board(){
+  const [maxRows, setMaxRows] = useState(0);
+
+  useEffect(() => {
+    // Calculate max rows by counting items in each section
+    const sections = document.querySelectorAll('.items');
+    const maxCount = Math.max(...Array.from(sections).map(section => section.children.length));
+    setMaxRows(maxCount);
+    document.documentElement.style.setProperty('--max-rows', maxCount);
+  }, []);
+
   return (
     <div className="board-wrap">
       <header className="board-header">
@@ -47,7 +57,9 @@ function Board(){
             <div className="row"><span className="name">Trail Mix</span><span className="price">1.00</span></div>
             <div className="row"><span className="name">Chips</span><span className="price">1.00</span></div>
             <div className="row"><span className="name">Fruit Snacks</span><span className="price">0.50</span></div>
-            <div className="row"><span className="name">Chocolate Bars / Skittles / Bottle Pops</span><span className="price">2.00</span></div>
+            <div className="row"><span className="name">Chocolate Bars </span><span className="price">2.00</span></div>
+            <div className="row"><span className="name">Skittles</span><span className="price">2.00</span></div>
+            <div className="row"><span className="name">Bottle Pops</span><span className="price">2.00</span></div>
           </div>
         </section>
       </main>
