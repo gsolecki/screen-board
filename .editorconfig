@@ -15,8 +15,6 @@ max_line_length = off
 [*.{js,jsx,ts,tsx,css,html,json}]
 indent_style = space
 indent_size = 2
-max_line_length = off
-word_wrap = false
 
 # Markdown files
 [*.md]
