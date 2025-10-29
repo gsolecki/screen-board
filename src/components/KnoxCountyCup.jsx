@@ -15,6 +15,8 @@ const transformPoolData = () => {
     Object.entries(divisionGroups).forEach(([groupCode, groupData]) => {
       // Initialize stats for each team
       const teamStats = {};
+      let hasMatchesPlayed = false;
+
       groupData.teams.forEach(teamId => {
         teamStats[teamId] = {
           teamId: teamId,
@@ -33,6 +35,7 @@ const transformPoolData = () => {
       // Calculate stats from matches
       groupData.matches.forEach(match => {
         if (match['match-played'] === 'Y') {
+          hasMatchesPlayed = true;
           const homeScore = match['home-score'];
           const awayScore = match['away-score'];
           const homeId = match.home;
@@ -86,7 +89,10 @@ const transformPoolData = () => {
         team.pos = index + 1;
       });
 
-      divisions[divType].groups[groupCode] = sortedTeams;
+      divisions[divType].groups[groupCode] = {
+        teams: sortedTeams,
+        hasMatchesPlayed: hasMatchesPlayed
+      };
     });
   });
 
@@ -95,7 +101,7 @@ const transformPoolData = () => {
 
 const divisions = transformPoolData();
 
-function StandingsTable({ data, groupName }) {
+function StandingsTable({ data, groupName, hasMatchesPlayed }) {
   return (
     <div className="group">
       <div className="group-header">{groupName}</div>
@@ -114,8 +120,8 @@ function StandingsTable({ data, groupName }) {
           </tr>
         </thead>
         <tbody>
-          {data.map((team) => (
-            <tr key={team.team}>
+          {data.map((team, index) => (
+            <tr key={team.team} className={hasMatchesPlayed && index === 0 ? 'leader' : ''}>
               <td>
                 <div className="team-cell">
                   <span className="position">{team.pos}</span>
@@ -150,8 +156,13 @@ function KnoxCountyCup() {
         <div className="division-column">
           <div className="division-header">{divisions.boys.label}</div>
           <div className="division-groups">
-            {Object.entries(divisions.boys.groups).map(([groupCode, data]) => (
-              <StandingsTable key={groupCode} groupName={`Group ${groupCode}`} data={data} />
+            {Object.entries(divisions.boys.groups).map(([groupCode, groupData]) => (
+              <StandingsTable
+                key={groupCode}
+                groupName={`Group ${groupCode}`}
+                data={groupData.teams}
+                hasMatchesPlayed={groupData.hasMatchesPlayed}
+              />
             ))}
           </div>
         </div>
@@ -163,8 +174,13 @@ function KnoxCountyCup() {
         <div className="division-column">
           <div className="division-header">{divisions.girls.label}</div>
           <div className="division-groups">
-            {Object.entries(divisions.girls.groups).map(([groupCode, data]) => (
-              <StandingsTable key={groupCode} groupName={`Group ${groupCode}`} data={data} />
+            {Object.entries(divisions.girls.groups).map(([groupCode, groupData]) => (
+              <StandingsTable
+                key={groupCode}
+                groupName={`Group ${groupCode}`}
+                data={groupData.teams}
+                hasMatchesPlayed={groupData.hasMatchesPlayed}
+              />
             ))}
           </div>
         </div>
