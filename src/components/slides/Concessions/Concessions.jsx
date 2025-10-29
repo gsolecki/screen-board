@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import './Concessions.css';
-import SlideLayout from '../common/SlideLayout';
-import concessionsData from '../../data/concessions.json';
+import SlideLayout from '../../common/SlideLayout';
+import concessionsData from '../../../data/concessions.json';
 
 function Concessions(){
   useEffect(() => {

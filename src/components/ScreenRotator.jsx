@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Concessions from './slides/Concessions';
-import KnoxCountyCup from './slides/KnoxCountyCup';
+import { Concessions, KnoxCountyCup } from './slides/Slides';
 import './ScreenRotator.css';
 
 const ROTATION_INTERVAL = 10000; // 10 seconds
