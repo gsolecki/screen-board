@@ -1,39 +1,36 @@
 import React from 'react';
 import './KnoxCountyCup.css';
+import poolData from '../data/kcc-pool.json';
 
-const groups = {
-  "U12 Boys - Group A": [
-    { pos: 1, team: "12B 128 Breedlove", mp: 2, w: 1, d: 0, l: 1, gf: 0, ga: 0, gd: 0, pts: 3 },
-    { pos: 2, team: "12UB - R124 - Guzzo", mp: 2, w: 1, d: 0, l: 1, gf: 0, ga: 0, gd: 0, pts: 3 },
-    { pos: 3, team: "12UB-R390-Gentry", mp: 2, w: 1, d: 0, l: 1, gf: 0, ga: 0, gd: 0, pts: 3 }
-  ],
-  "U12 Boys - Group B": [
-    { pos: 1, team: "12B 128 Skeen", mp: 2, w: 1, d: 0, l: 1, gf: 0, ga: 0, gd: 0, pts: 3 },
-    { pos: 2, team: "12UB - R124 - Hamler", mp: 2, w: 1, d: 0, l: 1, gf: 0, ga: 0, gd: 0, pts: 3 },
-    { pos: 3, team: "12UB-R385-Laxton", mp: 2, w: 1, d: 0, l: 1, gf: 0, ga: 0, gd: 0, pts: 3 }
-  ],
-  "U12 Girls - Group A": [
-    { pos: 1, team: "12 g 128 Jensen", mp: 2, w: 1, d: 0, l: 1, gf: 0, ga: 0, gd: 0, pts: 3 },
-    { pos: 2, team: "12UG - R124 - Lynn", mp: 2, w: 1, d: 0, l: 1, gf: 0, ga: 0, gd: 0, pts: 3 },
-    { pos: 3, team: "Swanson", mp: 2, w: 1, d: 0, l: 1, gf: 0, ga: 0, gd: 0, pts: 3 }
-  ],
-  "U12 Girls - Group B": [
-    { pos: 1, team: "12g 128 De La Torre", mp: 2, w: 1, d: 0, l: 1, gf: 0, ga: 0, gd: 0, pts: 3 },
-    { pos: 2, team: "12UG-R440-Miller", mp: 2, w: 1, d: 0, l: 1, gf: 0, ga: 0, gd: 0, pts: 3 },
-    { pos: 3, team: "12UG-R335-Schoenrock", mp: 2, w: 1, d: 0, l: 1, gf: 0, ga: 0, gd: 0, pts: 3 }
-  ],
-  "U12 Girls - Group C": [
-    { pos: 1, team: "12G 128 Boyce", mp: 2, w: 1, d: 0, l: 1, gf: 0, ga: 0, gd: 0, pts: 3 },
-    { pos: 2, team: "12UG - R124 - Studer", mp: 2, w: 1, d: 0, l: 1, gf: 0, ga: 0, gd: 0, pts: 3 },
-    { pos: 3, team: "12UG-R390-POST", mp: 2, w: 1, d: 0, l: 1, gf: 0, ga: 0, gd: 0, pts: 3 }
-  ],
-  "U12 Girls - Group D": [
-    { pos: 1, team: "12UG-R337-MOLONEY", mp: 2, w: 1, d: 0, l: 1, gf: 0, ga: 0, gd: 0, pts: 3 },
-    { pos: 2, team: "12UG-R385-Hodges", mp: 2, w: 1, d: 0, l: 1, gf: 0, ga: 0, gd: 0, pts: 3 },
-    { pos: 3, team: "12UG-R440-Azpurua", mp: 2, w: 1, d: 0, l: 1, gf: 0, ga: 0, gd: 0, pts: 3 },
-    { pos: 4, team: "12UG-R335-Dalton", mp: 2, w: 1, d: 0, l: 1, gf: 0, ga: 0, gd: 0, pts: 3 }
-  ]
+// Transform JSON data to display format
+const transformPoolData = () => {
+  const groups = {};
+
+  Object.entries(poolData).forEach(([division, divisionGroups]) => {
+    Object.entries(divisionGroups).forEach(([groupCode, groupData]) => {
+      const divisionLabel = division === '12U Boy' ? 'U12 Boys' : 'U12 Girls';
+      const groupName = `${divisionLabel} - Group ${groupCode}`;
+
+      // Create standings table from teams
+      groups[groupName] = groupData.teams.map((team, index) => ({
+        pos: index + 1,
+        team: team,
+        mp: 0,
+        w: 0,
+        d: 0,
+        l: 0,
+        gf: 0,
+        ga: 0,
+        gd: 0,
+        pts: 0
+      }));
+    });
+  });
+
+  return groups;
 };
+
+const groups = transformPoolData();
 
 function StandingsTable({ data, groupName }) {
   return (
@@ -81,7 +78,7 @@ function StandingsTable({ data, groupName }) {
 function KnoxCountyCup() {
   return (
     <div className="kcc-wrap">
-      <h1 className="kcc-title">Knox County Cup 2025</h1>
+      <h1 className="kcc-title">Knox County Cup 2025 - Group Phase</h1>
       <div className="standings-grid">
         {Object.entries(groups).map(([groupName, data]) => (
           <StandingsTable key={groupName} groupName={groupName} data={data} />

@@ -1,0 +1,331 @@
+{
+  "12U Boy": {
+    "A": {
+      "teams": [
+        "12B 128 Breedlove",
+        "12UB - R124 - Guzzo",
+        "12UB-R390-Gentry"
+      ],
+      "matches": [
+        {
+          "home": "12B 128 Breedlove",
+          "away": "12UB - R124 - Guzzo",
+          "date": "2025-10-25",
+          "time": "09:00",
+          "field": "1"
+        },
+        {
+          "home": "12UB-R390-Gentry",
+          "away": "12B 128 Breedlove",
+          "date": "2025-10-25",
+          "time": "12:00",
+          "field": "1"
+        },
+        {
+          "home": "12UB - R124 - Guzzo",
+          "away": "12UB-R390-Gentry",
+          "date": "2025-10-25",
+          "time": "15:00",
+          "field": "1"
+        }
+      ]
+    },
+    "B": {
+      "teams": [
+        "12B 128 Skeen",
+        "12UB - R124 - Hamler",
+        "12UB-R385-Laxton"
+      ],
+      "matches": [
+        {
+          "home": "12B 128 Skeen",
+          "away": "12UB - R124 - Hamler",
+          "date": "2025-10-25",
+          "time": "10:30",
+          "field": "1"
+        },
+        {
+          "home": "12UB-R385-Laxton",
+          "away": "12B 128 Skeen",
+          "date": "2025-10-25",
+          "time": "13:30",
+          "field": "1"
+        },
+        {
+          "home": "12UB - R124 - Hamler",
+          "away": "12UB-R385-Laxton",
+          "date": "2025-10-25",
+          "time": "16:30",
+          "field": "1"
+        }
+      ]
+    },
+    "C": {
+      "teams": [
+        "12B 128 Porter",
+        "12UB - R124 - Lee",
+        "R279 10 U B Hall"
+      ],
+      "matches": [
+        {
+          "home": "12B 128 Porter",
+          "away": "12UB - R124 - Lee",
+          "date": "2025-10-25",
+          "time": "09:00",
+          "field": "2"
+        },
+        {
+          "home": "R279 10 U B Hall",
+          "away": "12B 128 Porter",
+          "date": "2025-10-25",
+          "time": "12:00",
+          "field": "2"
+        },
+        {
+          "home": "12UB - R124 - Lee",
+          "away": "R279 10 U B Hall",
+          "date": "2025-10-25",
+          "time": "15:00",
+          "field": "2"
+        }
+      ]
+    },
+    "D": {
+      "teams": [
+        "Yohe",
+        "12UB - R124 - Reuss",
+        "12UB-R440-Heissenberg"
+      ],
+      "matches": [
+        {
+          "home": "Yohe",
+          "away": "12UB - R124 - Reuss",
+          "date": "2025-10-25",
+          "time": "10:30",
+          "field": "2"
+        },
+        {
+          "home": "12UB-R440-Heissenberg",
+          "away": "Yohe",
+          "date": "2025-10-25",
+          "time": "13:30",
+          "field": "2"
+        },
+        {
+          "home": "12UB - R124 - Reuss",
+          "away": "12UB-R440-Heissenberg",
+          "date": "2025-10-25",
+          "time": "16:30",
+          "field": "2"
+        }
+      ]
+    },
+    "E": {
+      "teams": [
+        "12UB-R1159-Kemp",
+        "12UB-R335-Johnson",
+        "12UB-R440-Black",
+        "12UB-R325-Perdue"
+      ],
+      "matches": [
+        {
+          "home": "12UB-R1159-Kemp",
+          "away": "12UB-R335-Johnson",
+          "date": "2025-10-25",
+          "time": "09:00",
+          "field": "3"
+        },
+        {
+          "home": "12UB-R335-Johnson",
+          "away": "12UB-R440-Black",
+          "date": "2025-10-25",
+          "time": "12:00",
+          "field": "3"
+        },
+        {
+          "home": "12UB-R325-Perdue",
+          "away": "12UB-R1159-Kemp",
+          "date": "2025-10-25",
+          "time": "15:00",
+          "field": "3"
+        },
+        {
+          "home": "12UB-R440-Black",
+          "away": "12UB-R325-Perdue",
+          "date": "2025-10-25",
+          "time": "09:00",
+          "field": "4"
+        }
+      ]
+    },
+    "F": {
+      "teams": [
+        "12UB-R1390-ALCARES",
+        "12UB-R325-Smith",
+        "12UB-R335-Gonzalez",
+        "12UB-R335-Ferguson"
+      ],
+      "matches": [
+        {
+          "home": "12UB-R1390-ALCARES",
+          "away": "12UB-R325-Smith",
+          "date": "2025-10-25",
+          "time": "10:30",
+          "field": "3"
+        },
+        {
+          "home": "12UB-R325-Smith",
+          "away": "12UB-R335-Gonzalez",
+          "date": "2025-10-25",
+          "time": "13:30",
+          "field": "3"
+        },
+        {
+          "home": "12UB-R335-Ferguson",
+          "away": "12UB-R1390-ALCARES",
+          "date": "2025-10-25",
+          "time": "16:30",
+          "field": "3"
+        },
+        {
+          "home": "12UB-R335-Gonzalez",
+          "away": "12UB-R335-Ferguson",
+          "date": "2025-10-25",
+          "time": "10:30",
+          "field": "4"
+        }
+      ]
+    }
+  },
+  "12U Girl": {
+    "GA": {
+      "teams": [
+        "12 g 128 Jensen",
+        "12UG - R124 - Lynn",
+        "Swanson"
+      ],
+      "matches": [
+        {
+          "home": "12 g 128 Jensen",
+          "away": "12UG - R124 - Lynn",
+          "date": "2025-10-25",
+          "time": "12:00",
+          "field": "4"
+        },
+        {
+          "home": "Swanson",
+          "away": "12 g 128 Jensen",
+          "date": "2025-10-25",
+          "time": "13:30",
+          "field": "4"
+        },
+        {
+          "home": "12UG - R124 - Lynn",
+          "away": "Swanson",
+          "date": "2025-10-25",
+          "time": "16:30",
+          "field": "4"
+        }
+      ]
+    },
+    "GB": {
+      "teams": [
+        "12g 128 De La Torre",
+        "12UG-R440-Miller",
+        "12UG-R335-Schoenrock"
+      ],
+      "matches": [
+        {
+          "home": "12g 128 De La Torre",
+          "away": "12UG-R440-Miller",
+          "date": "2025-10-25",
+          "time": "09:00",
+          "field": "5"
+        },
+        {
+          "home": "12UG-R335-Schoenrock",
+          "away": "12g 128 De La Torre",
+          "date": "2025-10-25",
+          "time": "12:00",
+          "field": "5"
+        },
+        {
+          "home": "12UG-R440-Miller",
+          "away": "12UG-R335-Schoenrock",
+          "date": "2025-10-25",
+          "time": "15:00",
+          "field": "5"
+        }
+      ]
+    },
+    "GC": {
+      "teams": [
+        "12G 128 Boyce",
+        "12UG - R124 - Studer",
+        "12UG-R390-POST"
+      ],
+      "matches": [
+        {
+          "home": "12G 128 Boyce",
+          "away": "12UG - R124 - Studer",
+          "date": "2025-10-25",
+          "time": "10:30",
+          "field": "5"
+        },
+        {
+          "home": "12UG - R124 - Studer",
+          "away": "12UG-R390-POST",
+          "date": "2025-10-25",
+          "time": "13:30",
+          "field": "5"
+        },
+        {
+          "home": "12UG-R390-POST",
+          "away": "12G 128 Boyce",
+          "date": "2025-10-25",
+          "time": "16:30",
+          "field": "5"
+        }
+      ]
+    },
+    "GD": {
+      "teams": [
+        "12UG-R337-MOLONEY",
+        "12UG-R385-Hodges",
+        "12UG-R440-Azpurua",
+        "12UG-R335-Dalton"
+      ],
+      "matches": [
+        {
+          "home": "12UG-R337-MOLONEY",
+          "away": "12UG-R385-Hodges",
+          "date": "2025-10-25",
+          "time": "09:00",
+          "field": "6"
+        },
+        {
+          "home": "12UG-R440-Azpurua",
+          "away": "12UG-R335-Dalton",
+          "date": "2025-10-25",
+          "time": "10:30",
+          "field": "6"
+        },
+        {
+          "home": "12UG-R337-MOLONEY",
+          "away": "12UG-R335-Dalton",
+          "date": "2025-10-25",
+          "time": "13:30",
+          "field": "6"
+        },
+        {
+          "home": "12UG-R385-Hodges",
+          "away": "12UG-R440-Azpurua",
+          "date": "2025-10-25",
+          "time": "15:00",
+          "field": "6"
+        }
+      ]
+    }
+  }
+}
+
