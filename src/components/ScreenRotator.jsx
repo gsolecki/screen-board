@@ -4,6 +4,7 @@ import KnoxCountyCup from './KnoxCountyCup';
 import './ScreenRotator.css';
 
 const ROTATION_INTERVAL = 10000; // 10 seconds
+const FADE_DURATION = 250; // 1 second fade in/out (in milliseconds)
 const VIEWS = ['concessions', 'kcc'];
 
 function ScreenRotator() {
@@ -19,15 +20,25 @@ function ScreenRotator() {
           setIsVisible(false);
           setTimeout(() => {
             setCurrentViewIndex(prev => (prev > 0 ? prev - 1 : VIEWS.length - 1));
-            setIsVisible(true);
-          }, 1000);
+            // Use requestAnimationFrame to ensure view changes before fade-in starts
+            requestAnimationFrame(() => {
+              requestAnimationFrame(() => {
+                setIsVisible(true);
+              });
+            });
+          }, FADE_DURATION / 2);
           break;
         case 'ArrowRight':
           setIsVisible(false);
           setTimeout(() => {
             setCurrentViewIndex(prev => (prev < VIEWS.length - 1 ? prev + 1 : 0));
-            setIsVisible(true);
-          }, 1000);
+            // Use requestAnimationFrame to ensure view changes before fade-in starts
+            requestAnimationFrame(() => {
+              requestAnimationFrame(() => {
+                setIsVisible(true);
+              });
+            });
+          }, FADE_DURATION / 2);
           break;
         case ' ':
           e.preventDefault();
@@ -50,8 +61,13 @@ function ScreenRotator() {
       setIsVisible(false);
       setTimeout(() => {
         setCurrentViewIndex(prev => (prev < VIEWS.length - 1 ? prev + 1 : 0));
-        setIsVisible(true);
-      }, 1000);
+        // Use requestAnimationFrame to ensure view changes before fade-in starts
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            setIsVisible(true);
+          });
+        });
+      }, FADE_DURATION / 2);
     }, ROTATION_INTERVAL);
 
     return () => clearInterval(interval);
@@ -68,7 +84,7 @@ function ScreenRotator() {
 
   const style = {
     opacity: isVisible ? 1 : 0,
-    transition: 'opacity 1s ease-in-out'
+    transition: `opacity ${FADE_DURATION}ms ease-in-out`
   };
 
   return (
