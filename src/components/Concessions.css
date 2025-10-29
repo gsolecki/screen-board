@@ -96,23 +96,6 @@
   text-align: right;
 }
 
-.concessions-footer {
-  margin-top: auto;
-  background: var(--concessions-ink);
-  color: #fff;
-  padding: clamp(0.75rem, 2vh, 1rem) clamp(1rem, 3vw, 1.5rem);
-  display: flex;
-  align-items: center;
-  gap: 0.6em;
-  justify-content: center;
-  font-family: 'Roboto', sans-serif;
-  font-size: clamp(0.85rem, 1.6vh, 1rem);
-  font-weight: 500;
-  text-align: center;
-  flex-wrap: wrap;
-  flex: 0 0 auto;
-}
-
 .dot {
   width: 0.7em;
   height: 0.7em;
@@ -122,6 +105,7 @@
   flex-shrink: 0;
 }
 
+/* Responsive adaptations */
 /* Responsive adaptations */
 @media (max-width: 640px) {
   .grid {
@@ -195,7 +179,7 @@
     color: var(--concessions-ink);
   }
 
-  .concessions-footer {
+  .app-footer {
     background: none;
     color: var(--concessions-ink);
     border-top: 1px solid var(--concessions-rule);

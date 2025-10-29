@@ -2,6 +2,7 @@ import React from 'react';
 import './KnoxCountyCup.css';
 import poolData from '../data/kcc-pool.json';
 import Header from './Header';
+import Footer from './Footer';
 
 // Transform JSON data to display format by division
 const transformPoolData = () => {
@@ -183,6 +184,12 @@ function KnoxCountyCup() {
           </div>
         </div>
       </div>
+
+      <Footer
+        leftContent={null}
+        centerContent={<span>Knox County Cup 2025 • Group Phase Standings</span>}
+        rightContent={null}
+      />
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import './Concessions.css';
 import Header from './Header';
+import Footer from './Footer';
 
 function Concessions(){
   useEffect(() => {
@@ -58,10 +59,11 @@ function Concessions(){
         </section>
       </main>
 
-      <footer className="concessions-footer">
-        <span className="dot" aria-hidden="true"></span>
-        <span className="hint">Prices include tax where applicable • Card or cash accepted</span>
-      </footer>
+      <Footer
+        leftContent={<span className="dot" aria-hidden="true"></span>}
+        centerContent={<span>Prices include tax where applicable • Card or cash accepted</span>}
+        rightContent={null}
+      />
     </div>
   );
 }
