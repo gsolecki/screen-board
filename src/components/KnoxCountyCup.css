@@ -1,111 +1,153 @@
 /* KnoxCountyCup styles */
 :root {
-  --table-border: #e5e7eb;
-  --header-bg: #f3f4f6;
-  --row-hover: #f9fafb;
-  --text-primary: #111827;
-  --text-secondary: #6b7280;
+  --kcc-blue: #1e3a8a;
+  --kcc-blue-dark: #1e40af;
+  --table-border: #e0e0e0;
+  --header-bg: #f5f5f5;
+  --row-hover: #f8f9fa;
+  --text-primary: #202124;
+  --text-secondary: #5f6368;
 }
 
 .kcc-wrap {
   width: 100vw;
   height: 100vh;
-  background: white;
+  background: #f8f9fa;
   display: flex;
   flex-direction: column;
-  padding: 1.5rem;
-  font-family: 'Roboto', system-ui, -apple-system, sans-serif;
+  padding: clamp(0.5rem, 2vh, 2rem);
+  font-family: 'Roboto', 'Arial', sans-serif;
+  overflow: hidden;
 }
 
 .kcc-title {
-  font-size: clamp(28px, 4vh, 42px);
-  font-weight: 700;
-  color: var(--text-primary);
-  margin-bottom: 1.5rem;
+  font-size: clamp(24px, 4vh, 48px);
+  font-weight: 600;
+  color: white;
+  background: var(--kcc-blue);
+  padding: clamp(0.75rem, 2vh, 1.5rem);
+  margin: 0;
+  margin-bottom: clamp(0.5rem, 1vh, 1rem);
   text-align: center;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.season-label {
+  font-size: clamp(0.75rem, 1.6vh, 1rem);
+  color: var(--text-secondary);
+  text-align: center;
+  margin-bottom: clamp(0.5rem, 1.5vh, 1.5rem);
+  font-weight: 400;
 }
 
 .standings-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr));
+  gap: clamp(0.5rem, 1.5vh, 1.5rem);
   width: 100%;
-  max-width: 1600px;
   margin: 0 auto;
   overflow-y: auto;
-  padding: 0.5rem;
+  flex: 1;
 }
 
 .group {
   background: white;
-  border-radius: 6px;
+  border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  border: 1px solid var(--table-border);
   height: fit-content;
+  display: flex;
+  flex-direction: column;
 }
 
 .group-header {
-  background: var(--header-bg);
-  padding: 0.5rem 1rem;
+  background: white;
+  padding: clamp(0.5rem, 1.5vh, 1rem);
   font-weight: 600;
   color: var(--text-primary);
-  border-bottom: 1px solid var(--table-border);
-  font-size: 0.9rem;
+  border-bottom: 2px solid var(--table-border);
+  font-size: clamp(0.8rem, 1.8vh, 1.1rem);
 }
 
 .standings-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 0.875rem;
+  font-size: clamp(0.7rem, 1.5vh, 0.9rem);
+}
+
+.standings-table thead {
+  background: var(--header-bg);
 }
 
 .standings-table th {
-  background: var(--header-bg);
-  padding: 0.5rem;
+  padding: clamp(0.4rem, 1vh, 0.7rem) clamp(0.2rem, 0.5vh, 0.5rem);
   text-align: center;
   font-weight: 500;
   color: var(--text-secondary);
-  font-size: 0.75rem;
+  font-size: clamp(0.65rem, 1.3vh, 0.8rem);
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
   border-bottom: 1px solid var(--table-border);
+}
+
+.standings-table th:first-child {
+  text-align: left;
+  padding-left: clamp(0.5rem, 1vh, 1rem);
+}
+
+.standings-table tbody tr {
+  border-bottom: 1px solid #f0f0f0;
+  transition: background-color 0.2s;
+}
+
+.standings-table tbody tr:hover {
+  background: var(--row-hover);
+}
+
+.standings-table tbody tr:last-child {
+  border-bottom: none;
 }
 
 .standings-table td {
-  padding: 0.5rem;
+  padding: clamp(0.5rem, 1.2vh, 0.8rem) clamp(0.2rem, 0.5vh, 0.5rem);
   text-align: center;
-  border-bottom: 1px solid var(--table-border);
-}
-
-.standings-table tr:hover {
-  background: var(--row-hover);
+  color: var(--text-primary);
 }
 
 .team-cell {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  padding-left: 0.5rem;
+  gap: clamp(0.4rem, 0.8vh, 0.7rem);
+  padding-left: clamp(0.25rem, 0.5vh, 0.5rem);
   text-align: left;
 }
 
 .position {
   color: var(--text-secondary);
-  font-weight: 500;
-  width: 1.5rem;
+  font-weight: 600;
+  min-width: clamp(1rem, 2vh, 1.5rem);
+  font-size: clamp(0.7rem, 1.5vh, 0.9rem);
 }
 
 .team-name {
-  font-weight: 500;
+  font-weight: 400;
   color: var(--text-primary);
-  white-space: nowrap;
+  flex: 1;
   overflow: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: clamp(0.7rem, 1.5vh, 0.9rem);
 }
 
 .points {
-  font-weight: 600;
+  font-weight: 700;
   color: var(--text-primary);
+  font-size: clamp(0.75rem, 1.5vh, 0.95rem);
 }
 
 .stats {
   color: var(--text-secondary);
+  font-size: clamp(0.7rem, 1.4vh, 0.85rem);
 }

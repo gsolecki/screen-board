@@ -78,7 +78,8 @@ function StandingsTable({ data, groupName }) {
 function KnoxCountyCup() {
   return (
     <div className="kcc-wrap">
-      <h1 className="kcc-title">Knox County Cup 2025 - Group Phase</h1>
+      <h1 className="kcc-title">Knox County Cup 2025</h1>
+      <div className="season-label">Season 2025-26 • Group Phase</div>
       <div className="standings-grid">
         {Object.entries(groups).map(([groupName, data]) => (
           <StandingsTable key={groupName} groupName={groupName} data={data} />
