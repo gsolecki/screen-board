@@ -112,7 +112,7 @@
   color: var(--kcc-blue);
   text-align: center;
   padding: clamp(0.4rem, 1vh, 0.75rem);
-  background: white;
+  background: linear-gradient(90deg, #a5b4fc 0%, #93c5fd 45%, #bfdbfe 100%);
   border-radius: 6px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.08);
   border-left: 4px solid var(--kcc-blue);
@@ -120,11 +120,13 @@
 
 .division-groups {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: clamp(0.5rem, 1.5vh, 1rem);
   overflow-y: auto;
   flex: 1;
   padding-bottom: clamp(0.25rem, 0.5vh, 0.5rem);
+  align-items: start;
+  align-content: start;
 }
 
 
@@ -137,21 +139,22 @@
   height: fit-content;
   display: flex;
   flex-direction: column;
+  align-self: start;
 }
 
 .group-header {
   background: white;
-  padding: clamp(0.5rem, 1.5vh, 1rem);
+  padding: clamp(0.4rem, 1vh, 0.7rem);
   font-weight: 600;
   color: var(--text-primary);
   border-bottom: 2px solid var(--table-border);
-  font-size: clamp(0.8rem, 1.8vh, 1.1rem);
+  font-size: clamp(0.75rem, 1.5vh, 1rem);
 }
 
 .standings-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: clamp(0.7rem, 1.5vh, 0.9rem);
+  font-size: clamp(0.65rem, 1.3vh, 0.85rem);
 }
 
 .standings-table thead {
@@ -159,11 +162,11 @@
 }
 
 .standings-table th {
-  padding: clamp(0.4rem, 1vh, 0.7rem) clamp(0.2rem, 0.5vh, 0.5rem);
+  padding: clamp(0.3rem, 0.7vh, 0.5rem) clamp(0.15rem, 0.3vh, 0.4rem);
   text-align: center;
   font-weight: 500;
   color: var(--text-secondary);
-  font-size: clamp(0.65rem, 1.3vh, 0.8rem);
+  font-size: clamp(0.6rem, 1.1vh, 0.75rem);
   text-transform: uppercase;
   letter-spacing: 0.3px;
   border-bottom: 1px solid var(--table-border);
@@ -171,7 +174,7 @@
 
 .standings-table th:first-child {
   text-align: left;
-  padding-left: clamp(0.5rem, 1vh, 1rem);
+  padding-left: clamp(0.4rem, 0.8vh, 0.8rem);
 }
 
 .standings-table tbody tr {
@@ -188,7 +191,7 @@
 }
 
 .standings-table td {
-  padding: clamp(0.5rem, 1.2vh, 0.8rem) clamp(0.2rem, 0.5vh, 0.5rem);
+  padding: clamp(0.3rem, 0.8vh, 0.5rem) clamp(0.15rem, 0.3vh, 0.4rem);
   text-align: center;
   color: var(--text-primary);
 }
@@ -196,16 +199,16 @@
 .team-cell {
   display: flex;
   align-items: center;
-  gap: clamp(0.4rem, 0.8vh, 0.7rem);
-  padding-left: clamp(0.25rem, 0.5vh, 0.5rem);
+  gap: clamp(0.3rem, 0.6vh, 0.5rem);
+  padding-left: clamp(0.2rem, 0.4vh, 0.4rem);
   text-align: left;
 }
 
 .position {
   color: var(--text-secondary);
   font-weight: 600;
-  min-width: clamp(1rem, 2vh, 1.5rem);
-  font-size: clamp(0.7rem, 1.5vh, 0.9rem);
+  min-width: clamp(0.8rem, 1.5vh, 1.2rem);
+  font-size: clamp(0.65rem, 1.3vh, 0.85rem);
 }
 
 .team-name {
@@ -215,16 +218,16 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  font-size: clamp(0.7rem, 1.5vh, 0.9rem);
+  font-size: clamp(0.65rem, 1.3vh, 0.85rem);
 }
 
 .points {
   font-weight: 700;
   color: var(--text-primary);
-  font-size: clamp(0.75rem, 1.5vh, 0.95rem);
+  font-size: clamp(0.7rem, 1.3vh, 0.9rem);
 }
 
 .stats {
   color: var(--text-secondary);
-  font-size: clamp(0.7rem, 1.4vh, 0.85rem);
+  font-size: clamp(0.65rem, 1.2vh, 0.8rem);
 }
