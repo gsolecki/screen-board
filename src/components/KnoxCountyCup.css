@@ -19,63 +19,6 @@
   overflow: hidden;
 }
 
-.kcc-header {
-  position: relative;
-  padding: clamp(0.6rem, 2.4vh, 1.2rem) clamp(0.6rem, 2.4vw, 1.5rem);
-  background: linear-gradient(90deg, var(--kcc-blue) 0%, #2563eb 45%, #3b82f6 100%);
-  color: #fff;
-  text-shadow: 0 2px 8px rgba(0,0,0,.28);
-  display: flex;
-  align-items: center;
-  gap: clamp(0.45rem, 1.2vw, 0.75rem);
-  justify-content: space-between;
-  flex: 0 0 auto;
-}
-
-.kcc-header::before {
-  content: '';
-  width: clamp(29px, 4.8vw, 43px);
-  height: clamp(29px, 4.8vw, 43px);
-  border-radius: 50%;
-  background: url('/src/assets/images/logo-round-504.png') center/cover no-repeat;
-  box-shadow: 0 6px 18px rgba(0,0,0,.18);
-  flex: 0 0 auto;
-  display: block;
-}
-
-.kcc-title {
-  font-size: clamp(25px, 4.8vh, 43px);
-  font-weight: 900;
-  margin: 0;
-  letter-spacing: 0.02em;
-  line-height: 1;
-  background: linear-gradient(90deg,
-    rgba(255,255,255,0.75) 0%,
-    rgba(255,255,255,1) 25%,
-    rgba(255,255,255,0.75) 50%,
-    rgba(255,255,255,1) 75%,
-    rgba(255,255,255,0.75) 100%
-  );
-  background-size: 200% 100%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  animation: kcc-shine 1.5s linear infinite;
-  text-shadow: 0 2px 12px rgba(0,0,0,.15);
-}
-
-@keyframes kcc-shine {
-  to { background-position: -200% 0; }
-}
-
-.season-label {
-  font-size: clamp(0.75rem, 1.6vh, 1rem);
-  color: var(--text-secondary);
-  text-align: center;
-  margin-bottom: clamp(0.5rem, 1.5vh, 1.5rem);
-  font-weight: 400;
-  padding: 0 clamp(0.5rem, 2vh, 1rem);
-}
 
 .divisions-container {
   display: grid;
@@ -83,7 +26,7 @@
   gap: 0;
   flex: 1;
   overflow: hidden;
-  padding: 0 clamp(0.5rem, 1vh, 1rem) clamp(0.5rem, 1vh, 1rem);
+  padding: clamp(0.5rem, 1vh, 1rem) clamp(0.5rem, 1vh, 1rem) clamp(0.5rem, 1vh, 1rem);
 }
 
 .division-column {

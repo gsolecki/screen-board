@@ -22,54 +22,6 @@
   overflow: hidden;
 }
 
-.concessions-header {
-  position: relative;
-  padding: clamp(0.6rem, 2.4vh, 1.2rem) clamp(0.6rem, 2.4vw, 1.5rem);
-  background: linear-gradient(90deg, var(--concessions-accent) 0%, #5b83ff 45%, var(--concessions-accent2) 100%);
-  color: #fff;
-  text-shadow: 0 2px 8px rgba(0,0,0,.28);
-  display: flex;
-  align-items: center;
-  gap: clamp(0.45rem, 1.2vw, 0.75rem);
-  justify-content: space-between;
-  flex: 0 0 auto;
-}
-
-.concessions-header::before {
-  content: '';
-  width: clamp(29px, 4.8vw, 43px);
-  height: clamp(29px, 4.8vw, 43px);
-  border-radius: 50%;
-  background: url('src/assets/images/logo-round-504.png') center/cover no-repeat;
-  box-shadow: 0 6px 18px rgba(0,0,0,.18);
-  flex: 0 0 auto;
-  display: block;
-}
-
-.concessions-header .title {
-  font-size: clamp(25px, 4.8vh, 43px);
-  font-weight: 900;
-  margin: 0;
-  letter-spacing: 0.02em;
-  line-height: 1;
-  background: linear-gradient(90deg,
-    rgba(255,255,255,0.75) 0%,
-    rgba(255,255,255,1) 25%,
-    rgba(255,255,255,0.75) 50%,
-    rgba(255,255,255,1) 75%,
-    rgba(255,255,255,0.75) 100%
-  );
-  background-size: 200% 100%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  animation: shine 1.5s linear infinite;
-  text-shadow: 0 2px 12px rgba(0,0,0,.15);
-}
-
-@keyframes shine {
-  to { background-position: -200% 0; }
-}
 
 .grid {
   display: grid;
@@ -177,14 +129,6 @@
     padding: 0.75rem;
   }
 
-  .concessions-header {
-    padding: 1rem;
-  }
-
-  .concessions-header .title {
-    font-size: clamp(24px, 7vw, 32px);
-  }
-
   .card {
     padding: 0.75rem;
   }
@@ -202,10 +146,6 @@
 
 /* Landscape mode */
 @media (max-height: 480px) and (orientation: landscape) {
-  .concessions-header::before {
-    width: 40px;
-    height: 40px;
-  }
 
   .grid {
     padding: 0.5rem;
@@ -232,14 +172,14 @@
     background: white;
   }
 
-  .concessions-header {
+  .app-header {
     background: none;
     color: var(--concessions-ink);
     padding: 1rem;
     print-color-adjust: exact;
   }
 
-  .concessions-header .title {
+  .app-title {
     color: var(--concessions-accent);
     background: none;
     -webkit-text-fill-color: currentColor;

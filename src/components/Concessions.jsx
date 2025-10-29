@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import './Concessions.css';
+import Header from './Header';
 
 function Concessions(){
   useEffect(() => {
@@ -11,9 +12,7 @@ function Concessions(){
 
   return (
     <div className="concessions-wrap">
-      <header className="concessions-header">
-        <h1 className="title">AYSO 128 Concessions</h1>
-      </header>
+      <Header title="AYSO 128" subtitle="CONCESSIONS" />
 
       <main className="grid">
         <section className="card">
