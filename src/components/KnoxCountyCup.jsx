@@ -2,17 +2,18 @@ import React from 'react';
 import './KnoxCountyCup.css';
 import poolData from '../data/kcc-pool.json';
 
-// Transform JSON data to display format
+// Transform JSON data to display format by division
 const transformPoolData = () => {
-  const groups = {};
+  const divisions = {
+    boys: { label: 'U12 Boys', groups: {} },
+    girls: { label: 'U12 Girls', groups: {} }
+  };
 
   Object.entries(poolData).forEach(([division, divisionGroups]) => {
-    Object.entries(divisionGroups).forEach(([groupCode, groupData]) => {
-      const divisionLabel = division === '12U Boy' ? 'U12 Boys' : 'U12 Girls';
-      const groupName = `${divisionLabel} - Group ${groupCode}`;
+    const divType = division === '12U Boy' ? 'boys' : 'girls';
 
-      // Create standings table from teams
-      groups[groupName] = groupData.teams.map((team, index) => ({
+    Object.entries(divisionGroups).forEach(([groupCode, groupData]) => {
+      divisions[divType].groups[groupCode] = groupData.teams.map((team, index) => ({
         pos: index + 1,
         team: team,
         mp: 0,
@@ -27,10 +28,10 @@ const transformPoolData = () => {
     });
   });
 
-  return groups;
+  return divisions;
 };
 
-const groups = transformPoolData();
+const divisions = transformPoolData();
 
 function StandingsTable({ data, groupName }) {
   return (
@@ -82,10 +83,29 @@ function KnoxCountyCup() {
         <h1 className="kcc-title">Knox County Cup 2025</h1>
       </header>
       <div className="season-label">Season 2025-26 • Group Phase</div>
-      <div className="standings-grid">
-        {Object.entries(groups).map(([groupName, data]) => (
-          <StandingsTable key={groupName} groupName={groupName} data={data} />
-        ))}
+      <div className="divisions-container">
+        {/* Boys Division */}
+        <div className="division-column">
+          <div className="division-header">{divisions.boys.label}</div>
+          <div className="division-groups">
+            {Object.entries(divisions.boys.groups).map(([groupCode, data]) => (
+              <StandingsTable key={groupCode} groupName={`Group ${groupCode}`} data={data} />
+            ))}
+          </div>
+        </div>
+
+        {/* Royal Blue Divider */}
+        <div className="division-divider"></div>
+
+        {/* Girls Division */}
+        <div className="division-column">
+          <div className="division-header">{divisions.girls.label}</div>
+          <div className="division-groups">
+            {Object.entries(divisions.girls.groups).map(([groupCode, data]) => (
+              <StandingsTable key={groupCode} groupName={`Group ${groupCode}`} data={data} />
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );
