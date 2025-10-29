@@ -9,22 +9,84 @@ const transformPoolData = () => {
     girls: { label: 'U12 Girls', groups: {} }
   };
 
-  Object.entries(poolData).forEach(([division, divisionGroups]) => {
+  Object.entries(poolData.divisions).forEach(([division, divisionGroups]) => {
     const divType = division === '12U Boy' ? 'boys' : 'girls';
 
     Object.entries(divisionGroups).forEach(([groupCode, groupData]) => {
-      divisions[divType].groups[groupCode] = groupData.teams.map((team, index) => ({
-        pos: index + 1,
-        team: team,
-        mp: 0,
-        w: 0,
-        d: 0,
-        l: 0,
-        gf: 0,
-        ga: 0,
-        gd: 0,
-        pts: 0
-      }));
+      // Initialize stats for each team
+      const teamStats = {};
+      groupData.teams.forEach(teamId => {
+        teamStats[teamId] = {
+          teamId: teamId,
+          team: poolData.teams[teamId.toString()].name,
+          mp: 0,
+          w: 0,
+          d: 0,
+          l: 0,
+          gf: 0,
+          ga: 0,
+          gd: 0,
+          pts: 0
+        };
+      });
+
+      // Calculate stats from matches
+      groupData.matches.forEach(match => {
+        if (match['match-played'] === 'Y') {
+          const homeScore = match['home-score'];
+          const awayScore = match['away-score'];
+          const homeId = match.home;
+          const awayId = match.away;
+
+          // Update matches played
+          teamStats[homeId].mp++;
+          teamStats[awayId].mp++;
+
+          // Update goals
+          teamStats[homeId].gf += homeScore;
+          teamStats[homeId].ga += awayScore;
+          teamStats[awayId].gf += awayScore;
+          teamStats[awayId].ga += homeScore;
+
+          // Determine result and update W/D/L and points
+          if (homeScore > awayScore) {
+            // Home win
+            teamStats[homeId].w++;
+            teamStats[homeId].pts += 3;
+            teamStats[awayId].l++;
+          } else if (homeScore < awayScore) {
+            // Away win
+            teamStats[awayId].w++;
+            teamStats[awayId].pts += 3;
+            teamStats[homeId].l++;
+          } else {
+            // Draw
+            teamStats[homeId].d++;
+            teamStats[awayId].d++;
+            teamStats[homeId].pts += 1;
+            teamStats[awayId].pts += 1;
+          }
+        }
+      });
+
+      // Calculate goal difference for each team
+      Object.values(teamStats).forEach(team => {
+        team.gd = team.gf - team.ga;
+      });
+
+      // Convert to array and sort by points (desc), then GD (desc), then GF (desc)
+      const sortedTeams = Object.values(teamStats).sort((a, b) => {
+        if (b.pts !== a.pts) return b.pts - a.pts;
+        if (b.gd !== a.gd) return b.gd - a.gd;
+        return b.gf - a.gf;
+      });
+
+      // Add position numbers
+      sortedTeams.forEach((team, index) => {
+        team.pos = index + 1;
+      });
+
+      divisions[divType].groups[groupCode] = sortedTeams;
     });
   });
 

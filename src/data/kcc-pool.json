@@ -1,330 +1,598 @@
 {
-  "12U Boy": {
-    "A": {
-      "teams": [
-        "12B 128 Breedlove",
-        "12UB - R124 - Guzzo",
-        "12UB-R390-Gentry"
-      ],
-      "matches": [
-        {
-          "home": "12B 128 Breedlove",
-          "away": "12UB - R124 - Guzzo",
-          "date": "2025-10-25",
-          "time": "09:00",
-          "field": "1"
-        },
-        {
-          "home": "12UB-R390-Gentry",
-          "away": "12B 128 Breedlove",
-          "date": "2025-10-25",
-          "time": "12:00",
-          "field": "1"
-        },
-        {
-          "home": "12UB - R124 - Guzzo",
-          "away": "12UB-R390-Gentry",
-          "date": "2025-10-25",
-          "time": "15:00",
-          "field": "1"
-        }
-      ]
+  "teams": {
+    "1": {
+      "id": 1,
+      "name": "R128 Breedlove",
+      "division": "12U Boy"
     },
-    "B": {
-      "teams": [
-        "12B 128 Skeen",
-        "12UB - R124 - Hamler",
-        "12UB-R385-Laxton"
-      ],
-      "matches": [
-        {
-          "home": "12B 128 Skeen",
-          "away": "12UB - R124 - Hamler",
-          "date": "2025-10-25",
-          "time": "10:30",
-          "field": "1"
-        },
-        {
-          "home": "12UB-R385-Laxton",
-          "away": "12B 128 Skeen",
-          "date": "2025-10-25",
-          "time": "13:30",
-          "field": "1"
-        },
-        {
-          "home": "12UB - R124 - Hamler",
-          "away": "12UB-R385-Laxton",
-          "date": "2025-10-25",
-          "time": "16:30",
-          "field": "1"
-        }
-      ]
+    "2": {
+      "id": 2,
+      "name": "R124 Guzzo",
+      "division": "12U Boy"
     },
-    "C": {
-      "teams": [
-        "12B 128 Porter",
-        "12UB - R124 - Lee",
-        "R279 10 U B Hall"
-      ],
-      "matches": [
-        {
-          "home": "12B 128 Porter",
-          "away": "12UB - R124 - Lee",
-          "date": "2025-10-25",
-          "time": "09:00",
-          "field": "2"
-        },
-        {
-          "home": "R279 10 U B Hall",
-          "away": "12B 128 Porter",
-          "date": "2025-10-25",
-          "time": "12:00",
-          "field": "2"
-        },
-        {
-          "home": "12UB - R124 - Lee",
-          "away": "R279 10 U B Hall",
-          "date": "2025-10-25",
-          "time": "15:00",
-          "field": "2"
-        }
-      ]
+    "3": {
+      "id": 3,
+      "name": "R390 Gentry",
+      "division": "12U Boy"
     },
-    "D": {
-      "teams": [
-        "Yohe",
-        "12UB - R124 - Reuss",
-        "12UB-R440-Heissenberg"
-      ],
-      "matches": [
-        {
-          "home": "Yohe",
-          "away": "12UB - R124 - Reuss",
-          "date": "2025-10-25",
-          "time": "10:30",
-          "field": "2"
-        },
-        {
-          "home": "12UB-R440-Heissenberg",
-          "away": "Yohe",
-          "date": "2025-10-25",
-          "time": "13:30",
-          "field": "2"
-        },
-        {
-          "home": "12UB - R124 - Reuss",
-          "away": "12UB-R440-Heissenberg",
-          "date": "2025-10-25",
-          "time": "16:30",
-          "field": "2"
-        }
-      ]
+    "4": {
+      "id": 4,
+      "name": "R128 Skeen",
+      "division": "12U Boy"
     },
-    "E": {
-      "teams": [
-        "12UB-R1159-Kemp",
-        "12UB-R335-Johnson",
-        "12UB-R440-Black",
-        "12UB-R325-Perdue"
-      ],
-      "matches": [
-        {
-          "home": "12UB-R1159-Kemp",
-          "away": "12UB-R335-Johnson",
-          "date": "2025-10-25",
-          "time": "09:00",
-          "field": "3"
-        },
-        {
-          "home": "12UB-R335-Johnson",
-          "away": "12UB-R440-Black",
-          "date": "2025-10-25",
-          "time": "12:00",
-          "field": "3"
-        },
-        {
-          "home": "12UB-R325-Perdue",
-          "away": "12UB-R1159-Kemp",
-          "date": "2025-10-25",
-          "time": "15:00",
-          "field": "3"
-        },
-        {
-          "home": "12UB-R440-Black",
-          "away": "12UB-R325-Perdue",
-          "date": "2025-10-25",
-          "time": "09:00",
-          "field": "4"
-        }
-      ]
+    "5": {
+      "id": 5,
+      "name": "R124 Hamler",
+      "division": "12U Boy"
     },
-    "F": {
-      "teams": [
-        "12UB-R1390-ALCARES",
-        "12UB-R325-Smith",
-        "12UB-R335-Gonzalez",
-        "12UB-R335-Ferguson"
-      ],
-      "matches": [
-        {
-          "home": "12UB-R1390-ALCARES",
-          "away": "12UB-R325-Smith",
-          "date": "2025-10-25",
-          "time": "10:30",
-          "field": "3"
-        },
-        {
-          "home": "12UB-R325-Smith",
-          "away": "12UB-R335-Gonzalez",
-          "date": "2025-10-25",
-          "time": "13:30",
-          "field": "3"
-        },
-        {
-          "home": "12UB-R335-Ferguson",
-          "away": "12UB-R1390-ALCARES",
-          "date": "2025-10-25",
-          "time": "16:30",
-          "field": "3"
-        },
-        {
-          "home": "12UB-R335-Gonzalez",
-          "away": "12UB-R335-Ferguson",
-          "date": "2025-10-25",
-          "time": "10:30",
-          "field": "4"
-        }
-      ]
+    "6": {
+      "id": 6,
+      "name": "R385 Laxton",
+      "division": "12U Boy"
+    },
+    "7": {
+      "id": 7,
+      "name": "R128 Porter",
+      "division": "12U Boy"
+    },
+    "8": {
+      "id": 8,
+      "name": "R124 Lee",
+      "division": "12U Boy"
+    },
+    "9": {
+      "id": 9,
+      "name": "R279 Hall",
+      "division": "12U Boy"
+    },
+    "10": {
+      "id": 10,
+      "name": "Yohe",
+      "division": "12U Boy"
+    },
+    "11": {
+      "id": 11,
+      "name": "R124 Reuss",
+      "division": "12U Boy"
+    },
+    "12": {
+      "id": 12,
+      "name": "R440 Heissenberg",
+      "division": "12U Boy"
+    },
+    "13": {
+      "id": 13,
+      "name": "R1159 Kemp",
+      "division": "12U Boy"
+    },
+    "14": {
+      "id": 14,
+      "name": "R335 Johnson",
+      "division": "12U Boy"
+    },
+    "15": {
+      "id": 15,
+      "name": "R440 Black",
+      "division": "12U Boy"
+    },
+    "16": {
+      "id": 16,
+      "name": "R325 Perdue",
+      "division": "12U Boy"
+    },
+    "17": {
+      "id": 17,
+      "name": "R1390 Alcares",
+      "division": "12U Boy"
+    },
+    "18": {
+      "id": 18,
+      "name": "R325 Smith",
+      "division": "12U Boy"
+    },
+    "19": {
+      "id": 19,
+      "name": "R335 Gonzalez",
+      "division": "12U Boy"
+    },
+    "20": {
+      "id": 20,
+      "name": "R335 Ferguson",
+      "division": "12U Boy"
+    },
+    "21": {
+      "id": 21,
+      "name": "R128 Jensen",
+      "division": "12U Girl"
+    },
+    "22": {
+      "id": 22,
+      "name": "R124 Lynn",
+      "division": "12U Girl"
+    },
+    "23": {
+      "id": 23,
+      "name": "Swanson",
+      "division": "12U Girl"
+    },
+    "24": {
+      "id": 24,
+      "name": "R128 De La Torre",
+      "division": "12U Girl"
+    },
+    "25": {
+      "id": 25,
+      "name": "R440 Miller",
+      "division": "12U Girl"
+    },
+    "26": {
+      "id": 26,
+      "name": "R335 Schoenrock",
+      "division": "12U Girl"
+    },
+    "27": {
+      "id": 27,
+      "name": "R128 Boyce",
+      "division": "12U Girl"
+    },
+    "28": {
+      "id": 28,
+      "name": "R124 Studer",
+      "division": "12U Girl"
+    },
+    "29": {
+      "id": 29,
+      "name": "R390 POST",
+      "division": "12U Girl"
+    },
+    "30": {
+      "id": 30,
+      "name": "R337 Moloney",
+      "division": "12U Girl"
+    },
+    "31": {
+      "id": 31,
+      "name": "R385 Hodges",
+      "division": "12U Girl"
+    },
+    "32": {
+      "id": 32,
+      "name": "R440 Azpurua",
+      "division": "12U Girl"
+    },
+    "33": {
+      "id": 33,
+      "name": "R335 Dalton",
+      "division": "12U Girl"
     }
   },
-  "12U Girl": {
-    "GA": {
-      "teams": [
-        "12 g 128 Jensen",
-        "12UG - R124 - Lynn",
-        "Swanson"
-      ],
-      "matches": [
-        {
-          "home": "12 g 128 Jensen",
-          "away": "12UG - R124 - Lynn",
-          "date": "2025-10-25",
-          "time": "12:00",
-          "field": "4"
-        },
-        {
-          "home": "Swanson",
-          "away": "12 g 128 Jensen",
-          "date": "2025-10-25",
-          "time": "13:30",
-          "field": "4"
-        },
-        {
-          "home": "12UG - R124 - Lynn",
-          "away": "Swanson",
-          "date": "2025-10-25",
-          "time": "16:30",
-          "field": "4"
-        }
-      ]
+  "divisions": {
+    "12U Boy": {
+      "A": {
+        "teams": [
+          1,
+          2,
+          3
+        ],
+        "matches": [
+          {
+            "home": 1,
+            "away": 2,
+            "date": "2025-10-25",
+            "time": "09:00",
+            "field": "1",
+            "home-score": 0,
+            "away-score": 0,
+            "match-played": "N"
+          },
+          {
+            "home": 3,
+            "away": 1,
+            "date": "2025-10-25",
+            "time": "12:00",
+            "field": "1",
+            "home-score": 0,
+            "away-score": 0,
+            "match-played": "N"
+          },
+          {
+            "home": 2,
+            "away": 3,
+            "date": "2025-10-25",
+            "time": "15:00",
+            "field": "1",
+            "home-score": 0,
+            "away-score": 0,
+            "match-played": "N"
+          }
+        ]
+      },
+      "B": {
+        "teams": [
+          4,
+          5,
+          6
+        ],
+        "matches": [
+          {
+            "home": 4,
+            "away": 5,
+            "date": "2025-10-25",
+            "time": "10:30",
+            "field": "1",
+            "home-score": 0,
+            "away-score": 0,
+            "match-played": "N"
+          },
+          {
+            "home": 6,
+            "away": 4,
+            "date": "2025-10-25",
+            "time": "13:30",
+            "field": "1",
+            "home-score": 0,
+            "away-score": 0,
+            "match-played": "N"
+          },
+          {
+            "home": 5,
+            "away": 6,
+            "date": "2025-10-25",
+            "time": "16:30",
+            "field": "1",
+            "home-score": 0,
+            "away-score": 0,
+            "match-played": "N"
+          }
+        ]
+      },
+      "C": {
+        "teams": [
+          7,
+          8,
+          9
+        ],
+        "matches": [
+          {
+            "home": 7,
+            "away": 8,
+            "date": "2025-10-25",
+            "time": "09:00",
+            "field": "2",
+            "home-score": 0,
+            "away-score": 0,
+            "match-played": "N"
+          },
+          {
+            "home": 9,
+            "away": 7,
+            "date": "2025-10-25",
+            "time": "12:00",
+            "field": "2",
+            "home-score": 0,
+            "away-score": 0,
+            "match-played": "N"
+          },
+          {
+            "home": 8,
+            "away": 9,
+            "date": "2025-10-25",
+            "time": "15:00",
+            "field": "2",
+            "home-score": 0,
+            "away-score": 0,
+            "match-played": "N"
+          }
+        ]
+      },
+      "D": {
+        "teams": [
+          10,
+          11,
+          12
+        ],
+        "matches": [
+          {
+            "home": 10,
+            "away": 11,
+            "date": "2025-10-25",
+            "time": "10:30",
+            "field": "2",
+            "home-score": 0,
+            "away-score": 0,
+            "match-played": "N"
+          },
+          {
+            "home": 12,
+            "away": 10,
+            "date": "2025-10-25",
+            "time": "13:30",
+            "field": "2",
+            "home-score": 0,
+            "away-score": 0,
+            "match-played": "N"
+          },
+          {
+            "home": 11,
+            "away": 12,
+            "date": "2025-10-25",
+            "time": "16:30",
+            "field": "2",
+            "home-score": 0,
+            "away-score": 0,
+            "match-played": "N"
+          }
+        ]
+      },
+      "E": {
+        "teams": [
+          13,
+          14,
+          15,
+          16
+        ],
+        "matches": [
+          {
+            "home": 13,
+            "away": 14,
+            "date": "2025-10-25",
+            "time": "09:00",
+            "field": "3",
+            "home-score": 0,
+            "away-score": 0,
+            "match-played": "N"
+          },
+          {
+            "home": 14,
+            "away": 15,
+            "date": "2025-10-25",
+            "time": "12:00",
+            "field": "3",
+            "home-score": 0,
+            "away-score": 0,
+            "match-played": "N"
+          },
+          {
+            "home": 16,
+            "away": 13,
+            "date": "2025-10-25",
+            "time": "15:00",
+            "field": "3",
+            "home-score": 0,
+            "away-score": 0,
+            "match-played": "N"
+          },
+          {
+            "home": 15,
+            "away": 16,
+            "date": "2025-10-25",
+            "time": "09:00",
+            "field": "4",
+            "home-score": 0,
+            "away-score": 0,
+            "match-played": "N"
+          }
+        ]
+      },
+      "F": {
+        "teams": [
+          17,
+          18,
+          19,
+          20
+        ],
+        "matches": [
+          {
+            "home": 17,
+            "away": 18,
+            "date": "2025-10-25",
+            "time": "10:30",
+            "field": "3",
+            "home-score": 0,
+            "away-score": 0,
+            "match-played": "N"
+          },
+          {
+            "home": 18,
+            "away": 19,
+            "date": "2025-10-25",
+            "time": "13:30",
+            "field": "3",
+            "home-score": 0,
+            "away-score": 0,
+            "match-played": "N"
+          },
+          {
+            "home": 20,
+            "away": 17,
+            "date": "2025-10-25",
+            "time": "16:30",
+            "field": "3",
+            "home-score": 0,
+            "away-score": 0,
+            "match-played": "N"
+          },
+          {
+            "home": 19,
+            "away": 20,
+            "date": "2025-10-25",
+            "time": "10:30",
+            "field": "4",
+            "home-score": 0,
+            "away-score": 0,
+            "match-played": "N"
+          }
+        ]
+      }
     },
-    "GB": {
-      "teams": [
-        "12g 128 De La Torre",
-        "12UG-R440-Miller",
-        "12UG-R335-Schoenrock"
-      ],
-      "matches": [
-        {
-          "home": "12g 128 De La Torre",
-          "away": "12UG-R440-Miller",
-          "date": "2025-10-25",
-          "time": "09:00",
-          "field": "5"
-        },
-        {
-          "home": "12UG-R335-Schoenrock",
-          "away": "12g 128 De La Torre",
-          "date": "2025-10-25",
-          "time": "12:00",
-          "field": "5"
-        },
-        {
-          "home": "12UG-R440-Miller",
-          "away": "12UG-R335-Schoenrock",
-          "date": "2025-10-25",
-          "time": "15:00",
-          "field": "5"
-        }
-      ]
-    },
-    "GC": {
-      "teams": [
-        "12G 128 Boyce",
-        "12UG - R124 - Studer",
-        "12UG-R390-POST"
-      ],
-      "matches": [
-        {
-          "home": "12G 128 Boyce",
-          "away": "12UG - R124 - Studer",
-          "date": "2025-10-25",
-          "time": "10:30",
-          "field": "5"
-        },
-        {
-          "home": "12UG - R124 - Studer",
-          "away": "12UG-R390-POST",
-          "date": "2025-10-25",
-          "time": "13:30",
-          "field": "5"
-        },
-        {
-          "home": "12UG-R390-POST",
-          "away": "12G 128 Boyce",
-          "date": "2025-10-25",
-          "time": "16:30",
-          "field": "5"
-        }
-      ]
-    },
-    "GD": {
-      "teams": [
-        "12UG-R337-MOLONEY",
-        "12UG-R385-Hodges",
-        "12UG-R440-Azpurua",
-        "12UG-R335-Dalton"
-      ],
-      "matches": [
-        {
-          "home": "12UG-R337-MOLONEY",
-          "away": "12UG-R385-Hodges",
-          "date": "2025-10-25",
-          "time": "09:00",
-          "field": "6"
-        },
-        {
-          "home": "12UG-R440-Azpurua",
-          "away": "12UG-R335-Dalton",
-          "date": "2025-10-25",
-          "time": "10:30",
-          "field": "6"
-        },
-        {
-          "home": "12UG-R337-MOLONEY",
-          "away": "12UG-R335-Dalton",
-          "date": "2025-10-25",
-          "time": "13:30",
-          "field": "6"
-        },
-        {
-          "home": "12UG-R385-Hodges",
-          "away": "12UG-R440-Azpurua",
-          "date": "2025-10-25",
-          "time": "15:00",
-          "field": "6"
-        }
-      ]
+    "12U Girl": {
+      "GA": {
+        "teams": [
+          21,
+          22,
+          23
+        ],
+        "matches": [
+          {
+            "home": 21,
+            "away": 22,
+            "date": "2025-10-25",
+            "time": "12:00",
+            "field": "4",
+            "home-score": 0,
+            "away-score": 0,
+            "match-played": "N"
+          },
+          {
+            "home": 23,
+            "away": 21,
+            "date": "2025-10-25",
+            "time": "13:30",
+            "field": "4",
+            "home-score": 0,
+            "away-score": 0,
+            "match-played": "N"
+          },
+          {
+            "home": 22,
+            "away": 23,
+            "date": "2025-10-25",
+            "time": "16:30",
+            "field": "4",
+            "home-score": 0,
+            "away-score": 0,
+            "match-played": "N"
+          }
+        ]
+      },
+      "GB": {
+        "teams": [
+          24,
+          25,
+          26
+        ],
+        "matches": [
+          {
+            "home": 24,
+            "away": 25,
+            "date": "2025-10-25",
+            "time": "09:00",
+            "field": "5",
+            "home-score": 0,
+            "away-score": 0,
+            "match-played": "N"
+          },
+          {
+            "home": 26,
+            "away": 24,
+            "date": "2025-10-25",
+            "time": "12:00",
+            "field": "5",
+            "home-score": 0,
+            "away-score": 0,
+            "match-played": "N"
+          },
+          {
+            "home": 25,
+            "away": 26,
+            "date": "2025-10-25",
+            "time": "15:00",
+            "field": "5",
+            "home-score": 0,
+            "away-score": 0,
+            "match-played": "N"
+          }
+        ]
+      },
+      "GC": {
+        "teams": [
+          27,
+          28,
+          29
+        ],
+        "matches": [
+          {
+            "home": 27,
+            "away": 28,
+            "date": "2025-10-25",
+            "time": "10:30",
+            "field": "5",
+            "home-score": 0,
+            "away-score": 0,
+            "match-played": "N"
+          },
+          {
+            "home": 28,
+            "away": 29,
+            "date": "2025-10-25",
+            "time": "13:30",
+            "field": "5",
+            "home-score": 0,
+            "away-score": 0,
+            "match-played": "N"
+          },
+          {
+            "home": 29,
+            "away": 27,
+            "date": "2025-10-25",
+            "time": "16:30",
+            "field": "5",
+            "home-score": 0,
+            "away-score": 0,
+            "match-played": "N"
+          }
+        ]
+      },
+      "GD": {
+        "teams": [
+          30,
+          31,
+          32,
+          33
+        ],
+        "matches": [
+          {
+            "home": 30,
+            "away": 31,
+            "date": "2025-10-25",
+            "time": "09:00",
+            "field": "6",
+            "home-score": 0,
+            "away-score": 0,
+            "match-played": "N"
+          },
+          {
+            "home": 32,
+            "away": 33,
+            "date": "2025-10-25",
+            "time": "10:30",
+            "field": "6",
+            "home-score": 0,
+            "away-score": 0,
+            "match-played": "N"
+          },
+          {
+            "home": 30,
+            "away": 33,
+            "date": "2025-10-25",
+            "time": "13:30",
+            "field": "6",
+            "home-score": 1,
+            "away-score": 1,
+            "match-played": "N"
+          },
+          {
+            "home": 31,
+            "away": 32,
+            "date": "2025-10-25",
+            "time": "15:00",
+            "field": "6",
+            "home-score": 0,
+            "away-score": 0,
+            "match-played": "N"
+          }
+        ]
+      }
     }
   }
 }
