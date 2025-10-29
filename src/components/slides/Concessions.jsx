@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import './Concessions.css';
-import Header from '../common/Header';
-import Footer from '../common/Footer';
+import SlideLayout from '../common/SlideLayout';
 
 function Concessions(){
   useEffect(() => {
@@ -12,9 +11,13 @@ function Concessions(){
   }, []);
 
   return (
-    <div className="concessions-wrap">
-      <Header title="AYSO 128" subtitle="CONCESSIONS" />
-
+    <SlideLayout
+      className="concessions-wrap"
+      title="AYSO 128"
+      subtitle="CONCESSIONS"
+      footerLeft={<span className="dot" aria-hidden="true"></span>}
+      footerCenter={<span>Prices include tax where applicable • Card or cash accepted</span>}
+    >
       <main className="grid">
         <section className="card">
           <h2>Snacks</h2>
@@ -58,13 +61,7 @@ function Concessions(){
           </div>
         </section>
       </main>
-
-      <Footer
-        leftContent={<span className="dot" aria-hidden="true"></span>}
-        centerContent={<span>Prices include tax where applicable • Card or cash accepted</span>}
-        rightContent={null}
-      />
-    </div>
+    </SlideLayout>
   );
 }
 
