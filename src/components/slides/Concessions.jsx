@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import './Concessions.css';
-import Header from './Header';
-import Footer from './Footer';
+import Header from '../common/Header';
+import Footer from '../common/Footer';
 
 function Concessions(){
   useEffect(() => {

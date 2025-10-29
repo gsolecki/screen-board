@@ -1,8 +1,8 @@
 import React from 'react';
 import './KnoxCountyCup.css';
-import poolData from '../data/kcc-pool.json';
-import Header from './Header';
-import Footer from './Footer';
+import poolData from '../../data/kcc-pool.json';
+import Header from '../common/Header';
+import Footer from '../common/Footer';
 
 // Transform JSON data to display format by division
 const transformPoolData = () => {
