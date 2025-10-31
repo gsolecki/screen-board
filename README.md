@@ -135,7 +135,7 @@ This application is deployed to **Azure Static Web Apps**. You can deploy using 
 4. **Deploy using SWA CLI**:
    ```bash
    npx @azure/static-web-apps-cli deploy ./dist \
-     --deployment-token <YOUR_DEPLOYMENT_TOKEN> \
+     --deployment-token a625d4a88dad55af18b501585c9b1491cb8a7566c7047e054cd2c898d077063d03-5e3eadf8-c41d-4393-bce9-33a18eec060c010051308e9aec10 \
      --env production
    ```
 

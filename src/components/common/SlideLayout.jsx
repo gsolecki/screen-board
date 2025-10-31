@@ -16,12 +16,15 @@ function SlideLayout({
   footerCenter = null,
   footerRight = null
 }) {
+  // Default to help hint if no left content provided
+  const defaultFooterLeft = footerLeft || <span className="help-hint-footer">Press / for help</span>;
+
   return (
     <div className={`slide-layout ${className || ''}`}>
       <Header title={title} subtitle={subtitle} />
       {children}
       <Footer
-        leftContent={footerLeft}
+        leftContent={defaultFooterLeft}
         centerContent={footerCenter}
         rightContent={footerRight}
       />

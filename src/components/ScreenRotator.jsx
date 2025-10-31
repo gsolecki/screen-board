@@ -11,6 +11,7 @@ function ScreenRotator() {
   const [isVisible, setIsVisible] = useState(true);
   const [isPaused, setIsPaused] = useState(false);
   const [rotationKey, setRotationKey] = useState(0); // Used to reset the rotation timer
+  const [showHelp, setShowHelp] = useState(false); // Help modal state
 
   // Handle keyboard controls
   useEffect(() => {
@@ -47,6 +48,13 @@ function ScreenRotator() {
         case ' ':
           e.preventDefault();
           setIsPaused(prev => !prev);
+          break;
+        case '/':
+          e.preventDefault();
+          setShowHelp(prev => !prev);
+          break;
+        case 'Escape':
+          setShowHelp(false);
           break;
         default:
           break;
@@ -108,6 +116,60 @@ function ScreenRotator() {
     <div style={style}>
       {renderCurrentView()}
       <Controls />
+
+      {/* Help modal */}
+      {showHelp && (
+        <div className="help-modal-overlay" onClick={() => setShowHelp(false)}>
+          <div className="help-modal" onClick={(e) => e.stopPropagation()}>
+            <button className="help-close" onClick={() => setShowHelp(false)}>×</button>
+            <h2>Keyboard Shortcuts</h2>
+            <div className="help-content">
+              <div className="help-section">
+                <h3>Navigation</h3>
+                <div className="help-item">
+                  <kbd>←</kbd>
+                  <span>Previous slide</span>
+                </div>
+                <div className="help-item">
+                  <kbd>→</kbd>
+                  <span>Next slide</span>
+                </div>
+                <div className="help-item">
+                  <kbd>Space</kbd>
+                  <span>Pause/Resume auto-rotation</span>
+                </div>
+                <div className="help-item">
+                  <kbd>/</kbd>
+                  <span>Show/Hide this help</span>
+                </div>
+                <div className="help-item">
+                  <kbd>Esc</kbd>
+                  <span>Close this help</span>
+                </div>
+              </div>
+
+              <div className="help-section">
+                <h3>Auto-Rotation</h3>
+                <div className="help-info">
+                  <p>Slides automatically rotate every <strong>{ROTATION_INTERVAL / 1000} seconds</strong></p>
+                  <p>Manual navigation resets the timer to give you more time to view the slide</p>
+                </div>
+              </div>
+
+              <div className="help-section">
+                <h3>Slides</h3>
+                <div className="help-info">
+                  <ol>
+                    <li>Concessions - Menu and pricing</li>
+                    <li>KCC Standings - Group phase standings</li>
+                    <li>KCC Schedule - Match schedule</li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
