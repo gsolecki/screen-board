@@ -35,6 +35,23 @@ A beautiful, interactive digital display board built with React that automatical
 **Production URL**: https://chiqchic.com  
 **Azure Default URL**: https://icy-hill-08e9aec10.3.azurestaticapps.net
 
+### ⚠️ IMPORTANT: Admin Panel Data Storage
+
+**Current Implementation**: The admin panel uses **browser localStorage** which means:
+- ❌ Data is **local to ONE browser only**
+- ❌ Admin on laptop A **cannot share** data with display on laptop B
+- ❌ **Different devices won't see** the same scores
+
+**For Multi-Device/Production Use**: 
+- ✅ **Backend API available** in `api/` folder
+- ✅ Deploy to Azure for **cross-device synchronization**
+- ✅ See [LOCALSTORAGE_VS_BACKEND.md](LOCALSTORAGE_VS_BACKEND.md) for details
+- ✅ Follow [BACKEND_API_DEPLOYMENT.md](docs/developers/BACKEND_API_DEPLOYMENT.md) to deploy
+
+**Quick Decision**:
+- Single device (admin & display same computer)? → Current setup works ✓
+- Multiple devices (admin on laptop, display on TV)? → Deploy backend API ✓✓✓
+
 ---
 
 ## 🚀 Quick Start

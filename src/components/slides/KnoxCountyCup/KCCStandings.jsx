@@ -149,27 +149,38 @@ function KCCStandings() {
 
   useEffect(() => {
     const loadData = async () => {
-      // Check if there's updated data in localStorage first
-      const savedData = localStorage.getItem('kcc-pool-data');
-      if (savedData) {
-        try {
-          const parsedData = JSON.parse(savedData);
-          setPoolData(parsedData);
-          setIsLoading(false);
-          return;
-        } catch (e) {
-          console.error('Error loading saved data:', e);
-        }
-      }
-
-      // Load from server
       try {
-        const response = await fetch('/data/kcc-pool.json');
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
+        // Load base tournament structure
+        const baseResponse = await fetch('/data/kcc-pool.json');
+        if (!baseResponse.ok) {
+          throw new Error(`HTTP error! status: ${baseResponse.status}`);
         }
-        const data = await response.json();
-        setPoolData(data);
+        const baseData = await baseResponse.json();
+
+        // Load saved match results from API
+        try {
+          const matchesResponse = await fetch('/api/matches');
+          if (matchesResponse.ok) {
+            const savedMatches = await matchesResponse.json();
+
+            // Merge saved matches into base data
+            savedMatches.forEach(savedMatch => {
+              const division = baseData.divisions[savedMatch.division];
+              if (division && division[savedMatch.group]) {
+                const match = division[savedMatch.group].matches[savedMatch.matchIndex];
+                if (match) {
+                  match['home-score'] = savedMatch.homeScore;
+                  match['away-score'] = savedMatch.awayScore;
+                  match['match-played'] = savedMatch.matchPlayed;
+                }
+              }
+            });
+          }
+        } catch (apiError) {
+          console.log('No saved match data from API, using base data only');
+        }
+
+        setPoolData(baseData);
       } catch (error) {
         console.error('Error loading KCC pool data:', error);
       } finally {
@@ -179,20 +190,9 @@ function KCCStandings() {
 
     loadData();
 
-    // Listen for storage changes (when admin updates data)
-    const handleStorageChange = (e) => {
-      if (e.key === 'kcc-pool-data' && e.newValue) {
-        try {
-          const parsedData = JSON.parse(e.newValue);
-          setPoolData(parsedData);
-        } catch (err) {
-          console.error('Error parsing storage data:', err);
-        }
-      }
-    };
-
-    globalThis.addEventListener('storage', handleStorageChange);
-    return () => globalThis.removeEventListener('storage', handleStorageChange);
+    // Poll for updates every 30 seconds
+    const interval = setInterval(loadData, 30000);
+    return () => clearInterval(interval);
   }, []);
 
   // Don't render if poolData is not available
