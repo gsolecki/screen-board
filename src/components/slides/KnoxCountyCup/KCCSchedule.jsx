@@ -77,10 +77,11 @@ function ScheduleTable({ matches, divisionLabel }) {
           <table className="schedule-table">
             <thead>
               <tr>
-                <th style={{width: '12%'}}>Time</th>
+                <th style={{width: '10%'}}>Time</th>
                 <th style={{width: '12%'}}>Field</th>
-                <th style={{width: '15%'}}>Group</th>
-                <th style={{width: '61%'}}>Match</th>
+                <th style={{width: '13%'}}>Group</th>
+                <th style={{width: '32.5%'}}>Home</th>
+                <th style={{width: '32.5%'}}>Away</th>
               </tr>
             </thead>
             <tbody>
@@ -89,17 +90,17 @@ function ScheduleTable({ matches, divisionLabel }) {
                   <td className="time">{match.time}</td>
                   <td className="field">Field {match.field}</td>
                   <td className="group">{match.group}</td>
-                  <td className="match">
-                    <div className="match-teams">
-                      <span className="team">{match.home}</span>
-                      <span className="vs">vs</span>
-                      <span className="team">{match.away}</span>
-                      {match.played && (
-                        <span className="score">
-                          ({match.homeScore} - {match.awayScore})
-                        </span>
-                      )}
-                    </div>
+                  <td className="home-team">
+                    {match.home}
+                    {match.played && (
+                      <span className="score-inline"> ({match.homeScore})</span>
+                    )}
+                  </td>
+                  <td className="away-team">
+                    {match.away}
+                    {match.played && (
+                      <span className="score-inline"> ({match.awayScore})</span>
+                    )}
                   </td>
                 </tr>
               ))}
