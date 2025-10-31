@@ -158,7 +158,8 @@ Ready for **Phase 2**? Just let me know which component to test next:
 - Header.jsx
 - Footer.jsx
 - Concessions.jsx
-- KnoxCountyCup.jsx
+- KCCStandings.jsx
+- KCCSchedule.jsx
 - Or any other component!
 
 ---

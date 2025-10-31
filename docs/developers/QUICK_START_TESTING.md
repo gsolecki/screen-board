@@ -80,7 +80,8 @@ When you're ready, just say which component to test next:
 - **Header.jsx** - Header component
 - **Footer.jsx** - Footer component  
 - **Concessions.jsx** - Concessions slide
-- **KnoxCountyCup.jsx** - Knox County Cup slide
+- **KCCStandings.jsx** - Knox County Cup standings slide
+- **KCCSchedule.jsx** - Knox County Cup schedule slide
 - **Or any other component!**
 
 ---

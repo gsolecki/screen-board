@@ -1,2 +1,2 @@
-export { default } from './KnoxCountyCup';
+export { default } from './KCCStandings';
 

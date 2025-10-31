@@ -322,7 +322,7 @@ screen-board/
 │   │   │   └── SlideLayout.jsx
 │   │   └── slides/                 # Individual slide components
 │   │       ├── Concessions/
-│   │       └── KnoxCountyCup/
+│   │       └── KnoxCountyCup/      # KCC Standings & Schedule
 │   ├── data/                       # JSON data files
 │   │   ├── concessions.json
 │   │   └── kcc-pool.json

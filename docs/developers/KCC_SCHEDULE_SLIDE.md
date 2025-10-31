@@ -50,7 +50,7 @@
 - **Played indicator**: Faded styling for completed matches
 
 ### Visual Consistency
-- Uses same color scheme as KnoxCountyCup standings
+- Uses same color scheme as KCCStandings
 - Matches the overall screen-board design language
 - Royal blue (#4169E1) accent color
 - Responsive text sizing with clamp()

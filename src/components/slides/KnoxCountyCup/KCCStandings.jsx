@@ -1,5 +1,5 @@
 import React from 'react';
-import './KnoxCountyCup.css';
+import './KCCStandings.css';
 import poolData from '../../../data/kcc-pool.json';
 import SlideLayout from '../../common/SlideLayout';
 
@@ -145,7 +145,7 @@ function StandingsTable({ data, groupName, hasMatchesPlayed }) {
   );
 }
 
-function KnoxCountyCup() {
+function KCCStandings() {
   return (
     <SlideLayout
       className="kcc-wrap"
@@ -191,5 +191,6 @@ function KnoxCountyCup() {
   );
 }
 
-export default KnoxCountyCup;
+export default KCCStandings;
+
 

@@ -1,14 +1,14 @@
 // Central slide forwarder. Re-exports individual slide components from their folders.
 import Concessions from './Concessions/Concessions';
-import KnoxCountyCup from './KnoxCountyCup/KnoxCountyCup';
+import KCCStandings from './KnoxCountyCup/KCCStandings';
 import KCCSchedule from './KnoxCountyCup/KCCSchedule';
 
-export { Concessions, KnoxCountyCup, KCCSchedule };
+export { Concessions, KCCStandings, KCCSchedule };
 
 // Provide named default-like exports for convenience if needed elsewhere
 export default {
   Concessions,
-  KnoxCountyCup,
+  KCCStandings,
   KCCSchedule
 };
 

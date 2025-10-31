@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Concessions, KnoxCountyCup, KCCSchedule } from './slides/Slides';
+import { Concessions, KCCStandings, KCCSchedule } from './slides/Slides';
 import './ScreenRotator.css';
 
 const ROTATION_INTERVAL = 10000; // 10 seconds
 const FADE_DURATION = 250; // 1 second fade in/out (in milliseconds)
-const VIEWS = ['concessions', 'kcc', 'kcc-schedule'];
+const VIEWS = ['concessions', 'kcc-standings', 'kcc-schedule'];
 
 function ScreenRotator() {
   const [currentViewIndex, setCurrentViewIndex] = useState(0);
@@ -91,7 +91,7 @@ function ScreenRotator() {
       case 0:
         return <Concessions />;
       case 1:
-        return <KnoxCountyCup />;
+        return <KCCStandings />;
       case 2:
         return <KCCSchedule />;
       default:
