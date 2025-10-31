@@ -15,7 +15,6 @@ function Concessions(){
       className="concessions-wrap"
       title="AYSO 128"
       subtitle="CONCESSIONS"
-      footerLeft={<span className="dot" aria-hidden="true"></span>}
       footerCenter={<span>Prices include tax where applicable • Card or cash accepted</span>}
     >
       <main className="grid">
