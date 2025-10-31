@@ -75,8 +75,9 @@ Items to check after deployment:
 
 ### For Users
 - Clear visibility that the app is live and deployed
-- Direct link to try the application
+- Direct link to try the application at custom domain (chiqchic.com)
 - Understanding of why direct file opening doesn't work
+- Professional custom domain with SSL/TLS security
 
 ### For Developers
 - Complete deployment guide for multiple platforms
@@ -101,18 +102,25 @@ Items to check after deployment:
 
 ## 🔗 Resources
 
-- **Live Application**: https://icy-hill-08e9aec10.3.azurestaticapps.net
+- **Production URL**: https://chiqchic.com
+- **Custom Domain**: chiqchic.com (SSL/TLS enabled)
+- **Azure Default URL**: https://icy-hill-08e9aec10.3.azurestaticapps.net
 - **Azure Portal**: [screenboard Static Web App](https://portal.azure.com/#@gsolecki8gmail.onmicrosoft.com/resource/subscriptions/ccd3ae76-3fdc-4906-9621-2b8f6150e14c/resourceGroups/screenboard-rg/providers/Microsoft.Web/staticSites/screenboard/staticsite)
 - **Resource Group**: screenboard-rg
 - **Subscription**: ccd3ae76-3fdc-4906-9621-2b8f6150e14c
 
 ## 📚 Next Steps
 
+### Completed ✅
+- [x] Custom domain configured (chiqchic.com)
+- [x] SSL/TLS certificate provisioned
+- [x] DNS records configured
+
 ### Recommended
 1. Set up GitHub Actions for automated deployment
-2. Configure custom domain (optional)
-3. Add deployment status webhooks
-4. Set up monitoring and alerts
+2. Add deployment status webhooks
+3. Set up monitoring and alerts
+4. Configure performance analytics
 
 ### Optional
 1. Add staging environment

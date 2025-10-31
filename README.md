@@ -26,7 +26,10 @@ A beautiful, interactive digital display board built with React that automatical
 
 ### 🌐 Live Demo
 
-👉 **[View Live Application](https://icy-hill-08e9aec10.3.azurestaticapps.net)** 👈
+👉 **[View Live Application](https://chiqchic.com)** 👈
+
+**Production URL**: https://chiqchic.com  
+**Azure Default URL**: https://icy-hill-08e9aec10.3.azurestaticapps.net
 
 ---
 
@@ -99,7 +102,9 @@ The preview server will start at `http://localhost:4173`
 This application is deployed to **Azure Static Web Apps**. You can deploy using the Azure CLI or GitHub Actions.
 
 #### Current Deployment
-🌐 **Live URL**: https://icy-hill-08e9aec10.3.azurestaticapps.net
+🌐 **Production URL**: https://chiqchic.com  
+🌐 **Azure URL**: https://icy-hill-08e9aec10.3.azurestaticapps.net  
+🔒 **Custom Domain**: chiqchic.com (SSL/TLS enabled)
 
 #### Prerequisites
 
@@ -133,6 +138,40 @@ This application is deployed to **Azure Static Web Apps**. You can deploy using 
      --deployment-token <YOUR_DEPLOYMENT_TOKEN> \
      --env production
    ```
+
+#### Custom Domain Configuration
+
+The application is configured with a custom domain: **chiqchic.com**
+
+To add or update a custom domain:
+
+1. **Add custom domain via Azure CLI**:
+   ```bash
+   az staticwebapp hostname set \
+     --name screenboard \
+     --resource-group screenboard-rg \
+     --hostname yourdomain.com
+   ```
+
+2. **Configure DNS records** at your domain registrar:
+   - **Type**: CNAME
+   - **Name**: @ (or www)
+   - **Value**: icy-hill-08e9aec10.3.azurestaticapps.net
+   - **TTL**: 3600 (or your preference)
+
+3. **Verify domain** (automatic SSL/TLS provisioning):
+   ```bash
+   az staticwebapp hostname list \
+     --name screenboard \
+     --resource-group screenboard-rg
+   ```
+
+4. Wait for SSL certificate provisioning (typically 5-10 minutes)
+
+**Current Configuration**:
+- ✅ Custom domain: chiqchic.com
+- ✅ SSL/TLS: Enabled (auto-provisioned by Azure)
+- ✅ Status: Ready
 
 #### Automated Deployment with GitHub Actions
 
@@ -245,8 +284,8 @@ Before deploying to production:
 - [ ] Build completes without errors (`npm run build`)
 - [ ] Preview build works locally (`npm run preview`)
 - [ ] Environment variables configured (if any)
-- [ ] Custom domain configured (optional)
-- [ ] SSL/TLS certificate valid
+- [x] ✅ Custom domain configured (chiqchic.com)
+- [x] ✅ SSL/TLS certificate valid
 - [ ] Performance optimized (check bundle size)
 
 ### Post-Deployment
@@ -430,7 +469,8 @@ Contributions are welcome! Here's how to get started:
 ## 📋 Roadmap
 
 - [x] ✅ **Phase 1**: Core testing infrastructure - Complete!
-- [x] ✅ **Azure Static Web Apps deployment** - Live at https://icy-hill-08e9aec10.3.azurestaticapps.net
+- [x] ✅ **Azure Static Web Apps deployment** - Live at https://chiqchic.com
+- [x] ✅ **Custom domain with SSL/TLS** - chiqchic.com configured
 - [ ] Phase 2: Component testing (ScreenRotator, Header, Footer, Slides)
 - [ ] Phase 3: Integration testing
 - [ ] Touch screen support for navigation
