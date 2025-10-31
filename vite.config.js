@@ -9,7 +9,7 @@ const __dirname = dirname(__filename)
 
 export default defineConfig({
   plugins: [react()],
-  base: './', // Use relative paths for assets
+  base: '/', // Use absolute paths for assets
   css: {
     devSourcemap: true,
     modules: {
@@ -21,5 +21,5 @@ export default defineConfig({
       '@': resolve(__dirname, 'src')
     }
   },
-  assetsInclude: ['**/*.png']
+  assetsInclude: ['**/*.png', '**/*.json']
 })

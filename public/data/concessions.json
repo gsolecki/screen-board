@@ -1,0 +1,43 @@
+[
+  {
+    "section": "Snacks",
+    "items": [
+      { "name": "Mini Donuts", "price": "0.75" },
+      { "name": "Hot Dogs", "note": "beef", "price": "1.50" },
+      { "name": "Yogurt Pouch", "price": "1.00" },
+      { "name": "Juice Box", "price": "1.00" },
+      { "name": "Goldfish", "price": "0.75" },
+      { "name": "Nachos", "price": "3.00" },
+      { "name": "Popcorn", "price": "1.50" }
+    ]
+  },
+  {
+    "section": "Beverages",
+    "items": [
+      { "name": "Cans", "note": "Coke, Diet Coke, Sprite, Dr P, Diet Dr P", "price": "1.00" },
+      { "name": "Water", "price": "1.00" },
+      { "name": "Gatorade", "note": "Blue, Red, Yellow, White Frost, Orange Zero", "price": "2.50" },
+      { "name": "Root Beer", "note": "caff-free", "price": "1.00" },
+      { "name": "Sprite Zero", "price": "1.00" },
+      { "name": "Coffee or Cocoa", "price": "1.00" }
+    ]
+  },
+  {
+    "section": "Treats",
+    "items": [
+      { "name": "BOBO PB + J", "price": "2.00" },
+      { "name": "BelVita", "price": "0.75" },
+      { "name": "Slim Jim", "price": "0.50" },
+      { "name": "Fruit", "note": "oranges 2 for $1", "price": "1.00" },
+      { "name": "Oreo Cookies", "price": "1.00" },
+      { "name": "AirHeads", "price": "0.50" },
+      { "name": "Honey Buns", "price": "1.00" },
+      { "name": "Muffins", "price": "1.50" },
+      { "name": "Trail Mix", "price": "1.00" },
+      { "name": "Chips", "price": "1.00" },
+      { "name": "Fruit Snacks", "price": "0.50" },
+      { "name": "Chocolate Bars / Skittles / Bottle Pops", "price": "2.00" }
+    ]
+  }
+]
+

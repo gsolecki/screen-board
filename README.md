@@ -20,6 +20,10 @@ A beautiful, interactive digital display board built with React that automatical
   - Concessions menu and pricing
   - Knox County Cup tournament information
   - Easily extensible for more slides
+- 🔧 **Admin Panel** - Manage Knox County Cup match results and standings
+  - Real-time score entry
+  - Automatic standings calculation
+  - Export/import functionality
 - ♿ **Accessible** - Built with accessibility in mind
 - ✅ **Fully Tested** - Comprehensive BDD-style unit tests
 - 🚀 **Production Ready** - Deployed on Azure Static Web Apps
@@ -55,6 +59,26 @@ npm run dev
 ```
 
 The app will open at `http://localhost:5173`
+
+### Admin Panel
+
+Access the Knox County Cup admin panel to manage match results:
+
+```
+http://localhost:5173/admin/kcc/standings
+```
+
+**Quick Start:**
+1. Look for the ⚙️ gear icon in the bottom-right corner
+2. Click to open admin menu
+3. Select "KCC Standings Manager"
+4. Enter match results and scores
+5. Changes save automatically and update the display
+
+📚 **Full Documentation:**
+- [Quick Start Guide](docs/KCC_ADMIN_QUICK_START.md)
+- [Admin Interface Guide](docs/developers/KCC_ADMIN_INTERFACE.md)
+- [Implementation Details](docs/developers/KCC_ADMIN_IMPLEMENTATION.md)
 
 ---
 

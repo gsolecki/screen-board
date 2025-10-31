@@ -1,10 +1,9 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './KCCStandings.css';
-import poolData from '../../../data/kcc-pool.json';
 import SlideLayout from '../../common/SlideLayout';
 
 // Transform JSON data to display format by division
-const transformPoolData = () => {
+const transformPoolData = (poolData) => {
   const divisions = {
     boys: { label: 'U12 Boys', groups: {} },
     girls: { label: 'U12 Girls', groups: {} }
@@ -100,7 +99,6 @@ const transformPoolData = () => {
   return divisions;
 };
 
-const divisions = transformPoolData();
 
 function StandingsTable({ data, groupName, hasMatchesPlayed }) {
   return (
@@ -146,6 +144,75 @@ function StandingsTable({ data, groupName, hasMatchesPlayed }) {
 }
 
 function KCCStandings() {
+  const [poolData, setPoolData] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const loadData = async () => {
+      // Check if there's updated data in localStorage first
+      const savedData = localStorage.getItem('kcc-pool-data');
+      if (savedData) {
+        try {
+          const parsedData = JSON.parse(savedData);
+          setPoolData(parsedData);
+          setIsLoading(false);
+          return;
+        } catch (e) {
+          console.error('Error loading saved data:', e);
+        }
+      }
+
+      // Load from server
+      try {
+        const response = await fetch('/data/kcc-pool.json');
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        setPoolData(data);
+      } catch (error) {
+        console.error('Error loading KCC pool data:', error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    loadData();
+
+    // Listen for storage changes (when admin updates data)
+    const handleStorageChange = (e) => {
+      if (e.key === 'kcc-pool-data' && e.newValue) {
+        try {
+          const parsedData = JSON.parse(e.newValue);
+          setPoolData(parsedData);
+        } catch (err) {
+          console.error('Error parsing storage data:', err);
+        }
+      }
+    };
+
+    globalThis.addEventListener('storage', handleStorageChange);
+    return () => globalThis.removeEventListener('storage', handleStorageChange);
+  }, []);
+
+  // Don't render if poolData is not available
+  if (!poolData || !poolData.divisions || !poolData.teams) {
+    return (
+      <SlideLayout
+        className="kcc-wrap"
+        title="Knox County Cup 2025"
+        subtitle="STANDINGS"
+        footerCenter={<span>Knox County Cup 2025 • Group Phase Standings</span>}
+      >
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '400px', color: 'white', fontSize: '1.5rem' }}>
+          Loading standings...
+        </div>
+      </SlideLayout>
+    );
+  }
+
+  const divisions = transformPoolData(poolData);
+
   return (
     <SlideLayout
       className="kcc-wrap"
