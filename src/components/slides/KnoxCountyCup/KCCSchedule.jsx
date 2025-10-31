@@ -77,11 +77,11 @@ function ScheduleTable({ matches, divisionLabel }) {
           <table className="schedule-table">
             <thead>
               <tr>
-                <th style={{width: '10%'}}>Time</th>
-                <th style={{width: '12%'}}>Field</th>
-                <th style={{width: '13%'}}>Group</th>
-                <th style={{width: '32.5%'}}>Home</th>
-                <th style={{width: '32.5%'}}>Away</th>
+                <th style={{width: '15%'}}>Time</th>
+                <th style={{width: '15%'}}>Field</th>
+                <th style={{width: '20%'}}>Group</th>
+                <th style={{width: '25%'}}>Home</th>
+                <th style={{width: '25%'}}>Away</th>
               </tr>
             </thead>
             <tbody>

@@ -98,6 +98,10 @@
   border-bottom: 1px solid var(--table-border);
 }
 
+.schedule-table th:nth-child(1) {
+  text-align: center;
+}
+
 .schedule-table tbody tr {
   border-bottom: 1px solid #f0f0f0;
   transition: background-color 0.2s;
@@ -133,6 +137,7 @@
   font-weight: 600;
   color: var(--kcc-blue);
   font-size: clamp(0.7rem, 1.3vh, 0.85rem);
+  text-align: center;
 }
 
 .schedule-table td.field {
