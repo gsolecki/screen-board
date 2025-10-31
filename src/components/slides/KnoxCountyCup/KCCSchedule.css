@@ -1,0 +1,193 @@
+/* KCC Schedule styles */
+:root {
+  --kcc-blue: #1e3a8a;
+  --kcc-blue-dark: #1e40af;
+  --table-border: #e0e0e0;
+  --header-bg: #f5f5f5;
+  --row-hover: #f8f9fa;
+  --text-primary: #202124;
+  --text-secondary: #5f6368;
+}
+
+.kcc-schedule-wrap {
+  background: #f8f9fa;
+}
+
+.schedule-container {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 0;
+  flex: 1;
+  overflow: hidden;
+  padding: clamp(0.5rem, 1vh, 1rem) clamp(0.5rem, 1vh, 1rem) clamp(0.5rem, 1vh, 1rem);
+}
+
+.schedule-column {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  gap: clamp(0.5rem, 1vh, 1rem);
+  padding: 0 clamp(0.5rem, 1vh, 1rem);
+}
+
+.schedule-divider {
+  width: 4px;
+  background: linear-gradient(180deg,
+    #4169E1 0%,
+    #5a7ff5 50%,
+    #4169E1 100%
+  );
+  margin: 0 clamp(0.5rem, 1vh, 1rem);
+  border-radius: 2px;
+  box-shadow: 0 0 8px rgba(65, 105, 225, 0.3);
+}
+
+.schedule-division {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.5rem, 1vh, 1rem);
+}
+
+.schedule-division-header {
+  font-size: clamp(1.2rem, 2.5vh, 1.8rem);
+  font-weight: 700;
+  color: var(--kcc-blue);
+  text-align: center;
+  padding: clamp(0.4rem, 1vh, 0.75rem);
+  background: linear-gradient(90deg, #a5b4fc 0%, #93c5fd 45%, #bfdbfe 100%);
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  border-left: 4px solid var(--kcc-blue);
+}
+
+.schedule-date-section {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  border: 1px solid var(--table-border);
+}
+
+.schedule-date-header {
+  background: linear-gradient(90deg, #e0e7ff 0%, #dbeafe 100%);
+  padding: clamp(0.4rem, 0.8vh, 0.6rem) clamp(0.6rem, 1vh, 1rem);
+  font-weight: 600;
+  color: var(--kcc-blue);
+  border-bottom: 2px solid var(--kcc-blue);
+  font-size: clamp(0.8rem, 1.5vh, 1rem);
+}
+
+.schedule-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: clamp(0.65rem, 1.3vh, 0.85rem);
+}
+
+.schedule-table thead {
+  background: var(--header-bg);
+}
+
+.schedule-table th {
+  padding: clamp(0.3rem, 0.7vh, 0.5rem) clamp(0.3rem, 0.5vh, 0.5rem);
+  text-align: left;
+  font-weight: 500;
+  color: var(--text-secondary);
+  font-size: clamp(0.6rem, 1.1vh, 0.75rem);
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  border-bottom: 1px solid var(--table-border);
+}
+
+.schedule-table tbody tr {
+  border-bottom: 1px solid #f0f0f0;
+  transition: background-color 0.2s;
+}
+
+.schedule-table tbody tr:hover {
+  background: var(--row-hover);
+}
+
+.schedule-table tbody tr.played {
+  opacity: 0.6;
+  background: #f9fafb;
+}
+
+.schedule-table tbody tr.played:hover {
+  opacity: 0.7;
+  background: #f3f4f6;
+}
+
+.schedule-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.schedule-table td {
+  padding: clamp(0.4rem, 0.8vh, 0.6rem) clamp(0.3rem, 0.5vh, 0.5rem);
+  color: var(--text-primary);
+}
+
+.schedule-table td.time {
+  font-weight: 600;
+  color: var(--kcc-blue);
+  font-size: clamp(0.7rem, 1.3vh, 0.85rem);
+}
+
+.schedule-table td.field {
+  color: var(--text-secondary);
+  font-size: clamp(0.65rem, 1.2vh, 0.8rem);
+}
+
+.schedule-table td.group {
+  color: var(--text-secondary);
+  font-weight: 500;
+  font-size: clamp(0.65rem, 1.2vh, 0.8rem);
+}
+
+.schedule-table td.match {
+  font-size: clamp(0.7rem, 1.3vh, 0.85rem);
+}
+
+.match-teams {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.3rem, 0.6vh, 0.5rem);
+  flex-wrap: wrap;
+}
+
+.match-teams .team {
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.match-teams .vs {
+  color: var(--text-secondary);
+  font-weight: 400;
+  font-size: clamp(0.6rem, 1.1vh, 0.75rem);
+}
+
+.match-teams .score {
+  color: var(--kcc-blue);
+  font-weight: 600;
+  margin-left: clamp(0.2rem, 0.4vh, 0.4rem);
+  font-size: clamp(0.65rem, 1.2vh, 0.8rem);
+}
+
+/* Scrollbar styling */
+.schedule-column::-webkit-scrollbar {
+  width: 6px;
+}
+
+.schedule-column::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.schedule-column::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+
+.schedule-column::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
