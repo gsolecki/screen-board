@@ -10,6 +10,7 @@ function ScreenRotator() {
   const [currentViewIndex, setCurrentViewIndex] = useState(0);
   const [isVisible, setIsVisible] = useState(true);
   const [isPaused, setIsPaused] = useState(false);
+  const [rotationKey, setRotationKey] = useState(0); // Used to reset the rotation timer
 
   // Handle keyboard controls
   useEffect(() => {
@@ -26,6 +27,8 @@ function ScreenRotator() {
               });
             });
           }, FADE_DURATION / 2);
+          // Reset the auto-rotation timer
+          setRotationKey(prev => prev + 1);
           break;
         case 'ArrowRight':
           setIsVisible(false);
@@ -38,6 +41,8 @@ function ScreenRotator() {
               });
             });
           }, FADE_DURATION / 2);
+          // Reset the auto-rotation timer
+          setRotationKey(prev => prev + 1);
           break;
         case ' ':
           e.preventDefault();
@@ -70,7 +75,7 @@ function ScreenRotator() {
     }, ROTATION_INTERVAL);
 
     return () => clearInterval(interval);
-  }, [isPaused]);
+  }, [isPaused, rotationKey]); // Adding rotationKey here resets timer when it changes
 
   // Controls overlay
   const Controls = () => (
