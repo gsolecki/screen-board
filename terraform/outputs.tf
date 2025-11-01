@@ -47,6 +47,26 @@ output "static_web_app_api_key" {
   sensitive   = true
 }
 
+output "function_app_name" {
+  description = "Name of the Function App"
+  value       = azurerm_linux_function_app.api.name
+}
+
+output "function_app_default_hostname" {
+  description = "Default hostname of the Function App"
+  value       = azurerm_linux_function_app.api.default_hostname
+}
+
+output "function_app_id" {
+  description = "ID of the Function App"
+  value       = azurerm_linux_function_app.api.id
+}
+
+output "api_base_url" {
+  description = "Base URL for API endpoints"
+  value       = "https://${azurerm_linux_function_app.api.default_hostname}/api"
+}
+
 output "deployment_instructions" {
   description = "Instructions for deploying the application"
   sensitive   = true

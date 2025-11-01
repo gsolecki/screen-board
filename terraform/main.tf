@@ -71,3 +71,56 @@ resource "azurerm_static_web_app" "main" {
   }
 }
 
+# Service Plan for Function App
+resource "azurerm_service_plan" "function_app" {
+  name                = "${var.resource_group_name}-plan"
+  resource_group_name = azurerm_resource_group.main.name
+  location            = "westus2"  # Try different region due to quota limits
+  os_type             = "Linux"
+  sku_name            = "B1"  # Basic plan
+
+  tags = {
+    Environment = var.environment
+    Project     = "screen-board"
+    ManagedBy   = "Terraform"
+  }
+}
+
+# Function App for API
+resource "azurerm_linux_function_app" "api" {
+  name                       = "${var.resource_group_name}-api"
+  resource_group_name        = azurerm_resource_group.main.name
+  location                   = "westus2"  # Match service plan location
+  service_plan_id            = azurerm_service_plan.function_app.id
+  storage_account_name       = azurerm_storage_account.main.name
+  storage_account_access_key = azurerm_storage_account.main.primary_access_key
+
+  site_config {
+    application_stack {
+      node_version = "18"
+    }
+    cors {
+      allowed_origins = [
+        "https://chiqchic.com",
+        "https://${azurerm_static_web_app.main.default_host_name}",
+        "http://localhost:5173",
+        "http://localhost:4173"
+      ]
+      support_credentials = false
+    }
+  }
+
+  app_settings = {
+    "AzureWebJobsStorage"              = azurerm_storage_account.main.primary_connection_string
+    "FUNCTIONS_WORKER_RUNTIME"         = "node"
+    "WEBSITE_NODE_DEFAULT_VERSION"     = "~18"
+    "FUNCTIONS_EXTENSION_VERSION"      = "~4"
+  }
+
+  tags = {
+    Environment = var.environment
+    Project     = "screen-board"
+    ManagedBy   = "Terraform"
+  }
+}
+
