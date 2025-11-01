@@ -116,7 +116,6 @@ function ScheduleTable({ matches, divisionLabel }) {
 
 function KCCSchedule() {
   const [poolData, setPoolData] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const loadData = async () => {
@@ -137,8 +136,6 @@ function KCCSchedule() {
         }
       } catch (error) {
         console.error('Error loading KCC pool data:', error);
-      } finally {
-        setIsLoading(false);
       }
     };
 

@@ -145,7 +145,6 @@ function StandingsTable({ data, groupName, hasMatchesPlayed }) {
 
 function KCCStandings() {
   const [poolData, setPoolData] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const loadData = async () => {
@@ -166,8 +165,6 @@ function KCCStandings() {
         }
       } catch (error) {
         console.error('Error loading KCC pool data:', error);
-      } finally {
-        setIsLoading(false);
       }
     };
 
