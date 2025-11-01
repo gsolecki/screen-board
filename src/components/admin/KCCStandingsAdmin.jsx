@@ -196,8 +196,9 @@ const KCCStandingsAdmin = () => {
                       <button
                         onClick={() => toggleMatchPlayed(index)}
                         className={`btn-toggle ${isPlayed ? 'played' : 'pending'}`}
+                        title={isPlayed ? 'Click to unlock and edit results' : 'Click to lock results as played'}
                       >
-                        {isPlayed ? '✓ Played' : '○ Pending'}
+                        {isPlayed ? '🔒 Played (Locked)' : '○ Unplayed'}
                       </button>
                     </div>
 
@@ -208,6 +209,7 @@ const KCCStandingsAdmin = () => {
                           type="date"
                           value={match.date}
                           onChange={(e) => handleMatchUpdate(index, 'date', e.target.value)}
+                          disabled={isPlayed}
                         />
                       </div>
                       <div className="match-info">
@@ -216,6 +218,7 @@ const KCCStandingsAdmin = () => {
                           type="time"
                           value={match.time}
                           onChange={(e) => handleMatchUpdate(index, 'time', e.target.value)}
+                          disabled={isPlayed}
                         />
                       </div>
                       <div className="match-info">
@@ -225,6 +228,7 @@ const KCCStandingsAdmin = () => {
                           value={match.field}
                           onChange={(e) => handleMatchUpdate(index, 'field', e.target.value)}
                           className="field-input"
+                          disabled={isPlayed}
                         />
                       </div>
                     </div>
@@ -238,7 +242,7 @@ const KCCStandingsAdmin = () => {
                           value={match['home-score']}
                           onChange={(e) => handleMatchUpdate(index, 'home-score', e.target.value)}
                           className="score-input"
-                          disabled={!isPlayed}
+                          disabled={isPlayed}
                         />
                       </div>
 
@@ -252,7 +256,7 @@ const KCCStandingsAdmin = () => {
                           value={match['away-score']}
                           onChange={(e) => handleMatchUpdate(index, 'away-score', e.target.value)}
                           className="score-input"
-                          disabled={!isPlayed}
+                          disabled={isPlayed}
                         />
                       </div>
                     </div>
