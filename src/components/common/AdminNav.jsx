@@ -7,8 +7,8 @@ const AdminNav = () => {
   const location = useLocation();
   const isAdminRoute = location.pathname.startsWith('/admin');
 
-  if (isAdminRoute) {
-    return null; // Don't show on admin pages
+  if (!isAdminRoute) {
+    return null; // Don't show on main display - use keyboard shortcut 'A' instead
   }
 
   return (

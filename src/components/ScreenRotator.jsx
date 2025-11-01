@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Concessions, KCCStandings, KCCSchedule } from './slides/Slides';
 import './ScreenRotator.css';
 
@@ -12,6 +13,7 @@ function ScreenRotator() {
   const [isPaused, setIsPaused] = useState(false);
   const [rotationKey, setRotationKey] = useState(0); // Used to reset the rotation timer
   const [showHelp, setShowHelp] = useState(false); // Help modal state
+  const navigate = useNavigate();
 
   // Handle keyboard controls
   useEffect(() => {
@@ -56,6 +58,10 @@ function ScreenRotator() {
         case 'Escape':
           setShowHelp(false);
           break;
+        case 'a':
+        case 'A':
+          navigate('/admin/kcc/standings');
+          break;
         default:
           break;
       }
@@ -63,7 +69,7 @@ function ScreenRotator() {
 
     window.addEventListener('keydown', handleKeyPress);
     return () => window.removeEventListener('keydown', handleKeyPress);
-  }, []);
+  }, [navigate]);
 
   // Handle auto-rotation
   useEffect(() => {
@@ -145,6 +151,14 @@ function ScreenRotator() {
                 <div className="help-item">
                   <kbd>Esc</kbd>
                   <span>Close this help</span>
+                </div>
+              </div>
+
+              <div className="help-section">
+                <h3>Admin</h3>
+                <div className="help-item">
+                  <kbd>A</kbd>
+                  <span>Open Admin Panel</span>
                 </div>
               </div>
 

@@ -8,47 +8,34 @@ const KCCStandingsAdmin = () => {
   const [selectedGroup, setSelectedGroup] = useState(null);
   const [saveStatus, setSaveStatus] = useState('');
 
-  // Load data from API instead of localStorage
+  // Load data from localStorage or fallback to original JSON
   useEffect(() => {
     const loadData = async () => {
-      try {
-        // First, load the base tournament structure
-        const baseResponse = await fetch('/data/kcc-pool.json');
-        if (!baseResponse.ok) {
-          throw new Error(`HTTP error! status: ${baseResponse.status}`);
-        }
-        const baseData = await baseResponse.json();
-
-        // Then, load any saved match results from API
+      const savedData = localStorage.getItem('kcc-pool-data');
+      if (savedData) {
         try {
-          const matchesResponse = await fetch('/api/matches');
-          if (matchesResponse.ok) {
-            const savedMatches = await matchesResponse.json();
-
-            // Merge saved matches into base data
-            savedMatches.forEach(savedMatch => {
-              const division = baseData.divisions[savedMatch.division];
-              if (division && division[savedMatch.group]) {
-                const match = division[savedMatch.group].matches[savedMatch.matchIndex];
-                if (match) {
-                  match['home-score'] = savedMatch.homeScore;
-                  match['away-score'] = savedMatch.awayScore;
-                  match['match-played'] = savedMatch.matchPlayed;
-                  if (savedMatch.date) match.date = savedMatch.date;
-                  if (savedMatch.time) match.time = savedMatch.time;
-                  if (savedMatch.field) match.field = savedMatch.field;
-                }
-              }
-            });
-          }
-        } catch (apiError) {
-          console.log('No saved match data from API (first time), using base data');
+          setPoolData(JSON.parse(savedData));
+        } catch (error) {
+          console.error('Error parsing saved data:', error);
+          localStorage.removeItem('kcc-pool-data');
+          // Load from server
+          const response = await fetch('/data/kcc-pool.json');
+          const data = await response.json();
+          setPoolData(data);
         }
-
-        setPoolData(baseData);
-      } catch (error) {
-        console.error('Error loading KCC pool data:', error);
-        alert('Error loading tournament data. Please refresh the page.');
+      } else {
+        // Load original data from public folder
+        try {
+          const response = await fetch('/data/kcc-pool.json');
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          const data = await response.json();
+          setPoolData(data);
+        } catch (error) {
+          console.error('Error loading KCC pool data:', error);
+          alert('Error loading tournament data. Please refresh the page.');
+        }
       }
     };
     loadData();
@@ -64,52 +51,14 @@ const KCCStandingsAdmin = () => {
     }
   }, [poolData, selectedDivision, selectedGroup]);
 
-  const saveData = async (newData) => {
+  const saveData = (newData) => {
+    localStorage.setItem('kcc-pool-data', JSON.stringify(newData));
     setPoolData(newData);
-    setSaveStatus('Saving...');
-
-    try {
-      // Extract all matches and save to API
-      const matchesToSave = [];
-      Object.entries(newData.divisions).forEach(([division, groups]) => {
-        Object.entries(groups).forEach(([group, groupData]) => {
-          groupData.matches.forEach((match, matchIndex) => {
-            matchesToSave.push({
-              division,
-              group,
-              matchIndex,
-              homeScore: match['home-score'],
-              awayScore: match['away-score'],
-              matchPlayed: match['match-played'],
-              date: match.date,
-              time: match.time,
-              field: match.field
-            });
-          });
-        });
-      });
-
-      // Save each match to API
-      const savePromises = matchesToSave.map(match =>
-        fetch('/api/matches', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(match)
-        })
-      );
-
-      await Promise.all(savePromises);
-
-      setSaveStatus('Saved successfully!');
-      setTimeout(() => setSaveStatus(''), 3000);
-    } catch (error) {
-      console.error('Error saving to API:', error);
-      setSaveStatus('Error saving! Check console.');
-      setTimeout(() => setSaveStatus(''), 5000);
-    }
+    setSaveStatus('Saved successfully!');
+    setTimeout(() => setSaveStatus(''), 3000);
   };
 
-  const handleMatchUpdate = async (matchIndex, field, value) => {
+  const handleMatchUpdate = (matchIndex, field, value) => {
     const newData = { ...poolData };
     const match = newData.divisions[selectedDivision][selectedGroup].matches[matchIndex];
 
@@ -119,14 +68,14 @@ const KCCStandingsAdmin = () => {
       match[field] = value;
     }
 
-    await saveData(newData);
+    saveData(newData);
   };
 
-  const toggleMatchPlayed = async (matchIndex) => {
+  const toggleMatchPlayed = (matchIndex) => {
     const newData = { ...poolData };
     const match = newData.divisions[selectedDivision][selectedGroup].matches[matchIndex];
     match['match-played'] = match['match-played'] === 'Y' ? 'N' : 'Y';
-    await saveData(newData);
+    saveData(newData);
   };
 
   const resetAllData = async () => {
@@ -137,22 +86,10 @@ const KCCStandingsAdmin = () => {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
         const data = await response.json();
-
-        // Reset all matches to unplayed with 0 scores
-        Object.values(data.divisions).forEach(groups => {
-          Object.values(groups).forEach(groupData => {
-            groupData.matches.forEach(match => {
-              match['home-score'] = 0;
-              match['away-score'] = 0;
-              match['match-played'] = 'N';
-            });
-          });
-        });
-
-        await saveData(data);
-        alert('Data has been reset to original values. All scores cleared.');
+        saveData(data);
+        alert('Data has been reset to original values.');
       } catch (error) {
-        console.error('Error resetting data:', error);
+        console.error('Error loading original data:', error);
         alert('Error resetting data. Please check your connection and try again.');
       }
     }

@@ -121,37 +121,20 @@ function KCCSchedule() {
   useEffect(() => {
     const loadData = async () => {
       try {
-        // Load base tournament structure
-        const baseResponse = await fetch('/data/kcc-pool.json');
-        if (!baseResponse.ok) {
-          throw new Error(`HTTP error! status: ${baseResponse.status}`);
-        }
-        const baseData = await baseResponse.json();
-
-        // Load saved match results from API
-        try {
-          const matchesResponse = await fetch('/api/matches');
-          if (matchesResponse.ok) {
-            const savedMatches = await matchesResponse.json();
-
-            // Merge saved matches into base data
-            savedMatches.forEach(savedMatch => {
-              const division = baseData.divisions[savedMatch.division];
-              if (division && division[savedMatch.group]) {
-                const match = division[savedMatch.group].matches[savedMatch.matchIndex];
-                if (match) {
-                  match['home-score'] = savedMatch.homeScore;
-                  match['away-score'] = savedMatch.awayScore;
-                  match['match-played'] = savedMatch.matchPlayed;
-                }
-              }
-            });
+        // Check if there's saved data in localStorage first
+        const savedData = localStorage.getItem('kcc-pool-data');
+        if (savedData) {
+          // Use localStorage data (saved from admin panel)
+          setPoolData(JSON.parse(savedData));
+        } else {
+          // Load base tournament structure if no saved data
+          const baseResponse = await fetch('/data/kcc-pool.json');
+          if (!baseResponse.ok) {
+            throw new Error(`HTTP error! status: ${baseResponse.status}`);
           }
-        } catch (apiError) {
-          console.log('No saved match data from API, using base data only');
+          const baseData = await baseResponse.json();
+          setPoolData(baseData);
         }
-
-        setPoolData(baseData);
       } catch (error) {
         console.error('Error loading KCC pool data:', error);
       } finally {
@@ -161,8 +144,8 @@ function KCCSchedule() {
 
     loadData();
 
-    // Poll for updates every 30 seconds
-    const interval = setInterval(loadData, 30000);
+    // Poll for updates every 5 seconds to detect localStorage changes
+    const interval = setInterval(loadData, 5000);
     return () => clearInterval(interval);
   }, []);
 
