@@ -62,6 +62,10 @@ function ScreenRotator() {
         case 'A':
           navigate('/admin/kcc/standings');
           break;
+        case 'c':
+        case 'C':
+          navigate('/admin/concessions');
+          break;
         default:
           break;
       }
@@ -158,7 +162,11 @@ function ScreenRotator() {
                 <h3>Admin</h3>
                 <div className="help-item">
                   <kbd>A</kbd>
-                  <span>Open Admin Panel</span>
+                  <span>KCC Standings Admin</span>
+                </div>
+                <div className="help-item">
+                  <kbd>C</kbd>
+                  <span>Concessions Admin</span>
                 </div>
               </div>
 

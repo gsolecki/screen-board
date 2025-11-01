@@ -106,6 +106,37 @@ const KCCStandingsAdmin = () => {
     URL.revokeObjectURL(url);
   };
 
+  const importData = (event) => {
+    const file = event.target.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      try {
+        const importedData = JSON.parse(e.target.result);
+
+        // Validate data structure
+        if (!importedData.divisions || !importedData.teams) {
+          alert('Invalid data format: Expected "divisions" and "teams" objects');
+          return;
+        }
+
+        // Confirm before overwriting
+        if (globalThis.confirm('This will replace all current match data. Are you sure?')) {
+          saveData(importedData);
+          alert('Data imported successfully!');
+        }
+      } catch (error) {
+        console.error('Error parsing JSON:', error);
+        alert('Error importing data: Invalid JSON file');
+      }
+    };
+
+    reader.readAsText(file);
+    // Reset input so same file can be selected again
+    event.target.value = '';
+  };
+
   if (!poolData) {
     return <div className="admin-loading">Loading...</div>;
   }
@@ -159,7 +190,17 @@ const KCCStandingsAdmin = () => {
         </div>
 
         <div className="action-buttons">
-          <button onClick={exportData} className="btn-export">Export Data</button>
+          <label htmlFor="import-file-kcc" className="btn-import">
+            📥 Import Data
+          </label>
+          <input
+            id="import-file-kcc"
+            type="file"
+            accept=".json,application/json"
+            onChange={importData}
+            style={{ display: 'none' }}
+          />
+          <button onClick={exportData} className="btn-export">📤 Export Data</button>
           <button onClick={resetAllData} className="btn-reset">Reset All Data</button>
         </div>
 
